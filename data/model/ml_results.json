@@ -1,0 +1,300 @@
+{
+  "class_names": [
+    "Abnormal",
+    "Inconclusive",
+    "Normal"
+  ],
+  "train_size": 43888,
+  "test_size": 10972,
+  "features_used": [
+    "Age",
+    "Billing Amount",
+    "Length of Stay",
+    "Room Number",
+    "Billing per Stay Day",
+    "Admission Quarter",
+    "Gender",
+    "Blood Type",
+    "Medical Condition",
+    "Admission Type",
+    "Insurance Provider",
+    "Medication",
+    "Age Group",
+    "Senior Citizen Flag",
+    "Admission Month",
+    "Admission Weekday",
+    "Emergency Flag",
+    "Billing Category",
+    "High Billing Flag",
+    "Peak Admission Period",
+    "Long-Stay Flag",
+    "High-Utilization Indicator"
+  ],
+  "features_excluded": [
+    "Name",
+    "Doctor",
+    "Hospital",
+    "Date of Admission",
+    "Discharge Date",
+    "Disease Category",
+    "Medication Category",
+    "Test Result Category"
+  ],
+  "features_excluded_reason": "Name/Doctor/Hospital are near-unique identifiers in this synthetic dataset (no repeatable signal, high overfitting risk); raw dates are superseded by engineered calendar features; Disease/Medication/Test Result 'Category' columns are exact duplicates of source columns.",
+  "model_comparison": {
+    "Logistic Regression": {
+      "cv_accuracy_mean": 0.3314,
+      "cv_accuracy_std": 0.0052,
+      "cv_f1_macro_mean": 0.3313,
+      "test_accuracy": 0.3334,
+      "test_precision_macro": 0.3332,
+      "test_recall_macro": 0.3335,
+      "test_f1_macro": 0.3332,
+      "test_roc_auc_macro": 0.4973,
+      "confusion_matrix": [
+        [
+          1134,
+          1281,
+          1265
+        ],
+        [
+          1150,
+          1283,
+          1199
+        ],
+        [
+          1174,
+          1245,
+          1241
+        ]
+      ],
+      "train_seconds": 4.6
+    },
+    "Decision Tree": {
+      "cv_accuracy_mean": 0.3398,
+      "cv_accuracy_std": 0.0032,
+      "cv_f1_macro_mean": 0.3254,
+      "test_accuracy": 0.3438,
+      "test_precision_macro": 0.3444,
+      "test_recall_macro": 0.3439,
+      "test_f1_macro": 0.3434,
+      "test_roc_auc_macro": 0.5098,
+      "confusion_matrix": [
+        [
+          1270,
+          1358,
+          1052
+        ],
+        [
+          1189,
+          1355,
+          1088
+        ],
+        [
+          1160,
+          1353,
+          1147
+        ]
+      ],
+      "train_seconds": 3.9
+    },
+    "Random Forest": {
+      "cv_accuracy_mean": 0.3947,
+      "cv_accuracy_std": 0.0058,
+      "cv_f1_macro_mean": 0.3946,
+      "test_accuracy": 0.4067,
+      "test_precision_macro": 0.4067,
+      "test_recall_macro": 0.4067,
+      "test_f1_macro": 0.4066,
+      "test_roc_auc_macro": 0.5802,
+      "confusion_matrix": [
+        [
+          1526,
+          1116,
+          1038
+        ],
+        [
+          1108,
+          1496,
+          1028
+        ],
+        [
+          1129,
+          1091,
+          1440
+        ]
+      ],
+      "train_seconds": 46.7
+    },
+    "XGBoost": {
+      "cv_accuracy_mean": 0.3689,
+      "cv_accuracy_std": 0.0037,
+      "cv_f1_macro_mean": 0.3687,
+      "test_accuracy": 0.3719,
+      "test_precision_macro": 0.372,
+      "test_recall_macro": 0.3719,
+      "test_f1_macro": 0.3719,
+      "test_roc_auc_macro": 0.5446,
+      "confusion_matrix": [
+        [
+          1418,
+          1154,
+          1108
+        ],
+        [
+          1209,
+          1339,
+          1084
+        ],
+        [
+          1166,
+          1170,
+          1324
+        ]
+      ],
+      "train_seconds": 16.4
+    },
+    "CatBoost": {
+      "cv_accuracy_mean": 0.356,
+      "cv_accuracy_std": 0.0055,
+      "cv_f1_macro_mean": 0.3558,
+      "test_accuracy": 0.3517,
+      "test_precision_macro": 0.3519,
+      "test_recall_macro": 0.3516,
+      "test_f1_macro": 0.3515,
+      "test_roc_auc_macro": 0.5234,
+      "confusion_matrix": [
+        [
+          1370,
+          1135,
+          1175
+        ],
+        [
+          1271,
+          1230,
+          1131
+        ],
+        [
+          1303,
+          1098,
+          1259
+        ]
+      ],
+      "train_seconds": 26.5
+    },
+    "Stacking Ensemble": {
+      "cv_accuracy_mean": 0.3835,
+      "cv_accuracy_std": 0.0049,
+      "cv_f1_macro_mean": 0.3833,
+      "test_accuracy": 0.3905,
+      "test_precision_macro": 0.3908,
+      "test_recall_macro": 0.3905,
+      "test_f1_macro": 0.3905,
+      "test_roc_auc_macro": 0.5603,
+      "confusion_matrix": [
+        [
+          1463,
+          1145,
+          1072
+        ],
+        [
+          1184,
+          1419,
+          1029
+        ],
+        [
+          1162,
+          1095,
+          1403
+        ]
+      ],
+      "train_seconds": 156.8
+    }
+  },
+  "best_model": "Random Forest",
+  "smote_imbalance_check": {
+    "class_balance_in_training_set": {
+      "Abnormal": 14719,
+      "Normal": 14642,
+      "Inconclusive": 14527
+    },
+    "cv_accuracy_mean": 0.3919,
+    "cv_f1_macro_mean": 0.3919,
+    "test_accuracy": 0.4136,
+    "test_f1_macro": 0.4134,
+    "conclusion": "Test Results classes are already near-balanced (~33% each), so SMOTE resampling inside the training fold produces materially the same accuracy/F1 as class-weighted Random Forest without it \u2014 imbalance handling is not a material lever for this dataset, but the leakage-safe pattern (resample only inside the CV training fold, never before the train/test split) is demonstrated here for methodological completeness."
+  },
+  "feature_importance_random_forest": [
+    {
+      "feature": "Room Number",
+      "importance": 0.0884
+    },
+    {
+      "feature": "Billing Amount",
+      "importance": 0.088
+    },
+    {
+      "feature": "Billing per Stay Day",
+      "importance": 0.088
+    },
+    {
+      "feature": "Age",
+      "importance": 0.0687
+    },
+    {
+      "feature": "Length of Stay",
+      "importance": 0.0607
+    },
+    {
+      "feature": "Admission Quarter",
+      "importance": 0.0197
+    },
+    {
+      "feature": "Gender_Male",
+      "importance": 0.0129
+    },
+    {
+      "feature": "Gender_Female",
+      "importance": 0.0129
+    },
+    {
+      "feature": "Medication_Lipitor",
+      "importance": 0.0117
+    },
+    {
+      "feature": "Medication_Aspirin",
+      "importance": 0.0115
+    },
+    {
+      "feature": "Medication_Ibuprofen",
+      "importance": 0.0115
+    },
+    {
+      "feature": "Medication_Paracetamol",
+      "importance": 0.0114
+    },
+    {
+      "feature": "Insurance Provider_Cigna",
+      "importance": 0.0114
+    },
+    {
+      "feature": "Medication_Penicillin",
+      "importance": 0.0113
+    },
+    {
+      "feature": "Insurance Provider_Aetna",
+      "importance": 0.0112
+    }
+  ],
+  "prediction_distribution_best_model": {
+    "Abnormal": 3763,
+    "Inconclusive": 3703,
+    "Normal": 3506
+  },
+  "actual_distribution_test_set": {
+    "Abnormal": 3680,
+    "Normal": 3660,
+    "Inconclusive": 3632
+  },
+  "disclaimer": "This model is a research/analytics prototype demonstrating whether patient and admission attributes carry predictive signal for test-result categorization. It is NOT a medical diagnostic system and must not be used for clinical decision-making."
+}

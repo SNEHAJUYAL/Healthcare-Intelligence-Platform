@@ -1,0 +1,20 @@
+Feature Set,Model,CV Accuracy,Test Accuracy,Macro F1,ROC-AUC,Generalization Gap
+A_all_features,Random Forest (probe),0.3932,,0.3928,,
+B_no_identifiers,Random Forest (probe),0.3944,,0.3943,,
+C_clinical_operational,Random Forest (probe),0.3944,,0.3943,,
+D_meaningful_plus_engineered,Random Forest (probe),0.3908,,0.3907,,
+E_no_billing,Random Forest (probe),0.3837,,0.3836,,
+F_no_room_number,Random Forest (probe),0.3867,,0.3867,,
+B_no_identifiers,Majority Baseline,0.3354,,0.1674,,
+B_no_identifiers,Logistic Regression,0.3315,,0.3312,,
+B_no_identifiers,Decision Tree,0.3392,,0.3122,,
+B_no_identifiers,Random Forest,0.3956,,0.3955,,
+B_no_identifiers,Extra Trees,0.3932,,0.3931,,
+B_no_identifiers,XGBoost,0.364,,0.3639,,
+B_no_identifiers,CatBoost,0.3535,,0.3534,,
+B_no_identifiers,LightGBM,0.3592,,0.3592,,
+B_no_identifiers,HistGradientBoosting,0.3449,,0.3439,,
+B_no_identifiers,Random Forest (tuned),0.4081,,0.4081,,0.5918
+B_no_identifiers,Extra Trees (tuned),0.4046,,0.4045,,0.5903
+original (prior project),Random Forest (incumbent baseline),,0.4048,0.4046,0.5799,
+B_no_identifiers,Random Forest (FINAL SELECTED),0.4081,0.4323,0.4322,0.6234,0.0242

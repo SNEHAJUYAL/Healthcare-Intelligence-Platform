@@ -1,0 +1,566 @@
+{
+  "source": "World Bank Open Data (World Development Indicators)",
+  "url": "https://data.worldbank.org/indicator",
+  "license": "CC BY 4.0",
+  "retrieved": "2026-09",
+  "note": "This platform's own dataset has no real bed-capacity, staffing, or geographic field (see Stage 7, Resource Planning). These national-level indicators are the closest real, freely-available substitute for that missing context.",
+  "latest_snapshot_by_country": {
+    "United States": {
+      "Hospital beds (per 1,000 people)": {
+        "value": 2.68,
+        "year": 2022
+      },
+      "Physicians (per 1,000 people)": {
+        "value": 3.68,
+        "year": 2022
+      },
+      "Health expenditure per capita (current US$)": {
+        "value": 13473.19,
+        "year": 2023
+      },
+      "Health expenditure (% of GDP)": {
+        "value": 16.69,
+        "year": 2023
+      },
+      "Life expectancy at birth (years)": {
+        "value": 78.89,
+        "year": 2024
+      }
+    },
+    "United Kingdom": {
+      "Hospital beds (per 1,000 people)": {
+        "value": 2.42,
+        "year": 2022
+      },
+      "Physicians (per 1,000 people)": {
+        "value": 3.3,
+        "year": 2023
+      },
+      "Health expenditure per capita (current US$)": {
+        "value": 5860.24,
+        "year": 2024
+      },
+      "Health expenditure (% of GDP)": {
+        "value": 11.13,
+        "year": 2024
+      },
+      "Life expectancy at birth (years)": {
+        "value": 81.39,
+        "year": 2024
+      }
+    },
+    "Germany": {
+      "Hospital beds (per 1,000 people)": {
+        "value": 7.55,
+        "year": 2023
+      },
+      "Physicians (per 1,000 people)": {
+        "value": 4.53,
+        "year": 2022
+      },
+      "Health expenditure per capita (current US$)": {
+        "value": 6849.26,
+        "year": 2024
+      },
+      "Health expenditure (% of GDP)": {
+        "value": 12.27,
+        "year": 2024
+      },
+      "Life expectancy at birth (years)": {
+        "value": 80.79,
+        "year": 2024
+      }
+    },
+    "Canada": {
+      "Hospital beds (per 1,000 people)": {
+        "value": 2.54,
+        "year": 2022
+      },
+      "Physicians (per 1,000 people)": {
+        "value": 2.82,
+        "year": 2023
+      },
+      "Health expenditure per capita (current US$)": {
+        "value": 6377.97,
+        "year": 2024
+      },
+      "Health expenditure (% of GDP)": {
+        "value": 11.31,
+        "year": 2024
+      },
+      "Life expectancy at birth (years)": {
+        "value": 82.11,
+        "year": 2024
+      }
+    },
+    "France": {
+      "Hospital beds (per 1,000 people)": {
+        "value": 5.65,
+        "year": 2022
+      },
+      "Physicians (per 1,000 people)": {
+        "value": 3.28,
+        "year": 2022
+      },
+      "Health expenditure per capita (current US$)": {
+        "value": 5327.43,
+        "year": 2024
+      },
+      "Health expenditure (% of GDP)": {
+        "value": 11.54,
+        "year": 2024
+      },
+      "Life expectancy at birth (years)": {
+        "value": 82.98,
+        "year": 2024
+      }
+    },
+    "Japan": {
+      "Hospital beds (per 1,000 people)": {
+        "value": 12.59,
+        "year": 2022
+      },
+      "Physicians (per 1,000 people)": {
+        "value": 2.65,
+        "year": 2022
+      },
+      "Health expenditure per capita (current US$)": {
+        "value": 3638.19,
+        "year": 2023
+      },
+      "Health expenditure (% of GDP)": {
+        "value": 10.74,
+        "year": 2023
+      },
+      "Life expectancy at birth (years)": {
+        "value": 84.04,
+        "year": 2024
+      }
+    }
+  },
+  "us_trend": {
+    "Hospital beds (per 1,000 people)": [
+      {
+        "year": 2000,
+        "value": 3.49
+      },
+      {
+        "year": 2001,
+        "value": 3.47
+      },
+      {
+        "year": 2002,
+        "value": 3.4
+      },
+      {
+        "year": 2003,
+        "value": 3.33
+      },
+      {
+        "year": 2004,
+        "value": 3.26
+      },
+      {
+        "year": 2005,
+        "value": 3.2
+      },
+      {
+        "year": 2006,
+        "value": 3.17
+      },
+      {
+        "year": 2007,
+        "value": 3.13
+      },
+      {
+        "year": 2008,
+        "value": 3.12
+      },
+      {
+        "year": 2009,
+        "value": 3.07
+      },
+      {
+        "year": 2010,
+        "value": 3.03
+      },
+      {
+        "year": 2011,
+        "value": 2.94
+      },
+      {
+        "year": 2012,
+        "value": 2.9
+      },
+      {
+        "year": 2013,
+        "value": 2.86
+      },
+      {
+        "year": 2014,
+        "value": 2.79
+      },
+      {
+        "year": 2015,
+        "value": 2.75
+      },
+      {
+        "year": 2016,
+        "value": 2.72
+      },
+      {
+        "year": 2017,
+        "value": 2.8
+      },
+      {
+        "year": 2018,
+        "value": 2.76
+      },
+      {
+        "year": 2019,
+        "value": 2.72
+      },
+      {
+        "year": 2020,
+        "value": 2.71
+      },
+      {
+        "year": 2021,
+        "value": 2.7
+      },
+      {
+        "year": 2022,
+        "value": 2.68
+      }
+    ],
+    "Physicians (per 1,000 people)": [
+      {
+        "year": 2000,
+        "value": 2.596
+      },
+      {
+        "year": 2004,
+        "value": 2.711
+      },
+      {
+        "year": 2018,
+        "value": 2.548
+      },
+      {
+        "year": 2019,
+        "value": 3.482
+      },
+      {
+        "year": 2020,
+        "value": 3.518
+      },
+      {
+        "year": 2021,
+        "value": 3.575
+      },
+      {
+        "year": 2022,
+        "value": 3.681
+      }
+    ],
+    "Health expenditure per capita (current US$)": [
+      {
+        "year": 2000,
+        "value": 4548.5546875
+      },
+      {
+        "year": 2001,
+        "value": 4901.67529297
+      },
+      {
+        "year": 2002,
+        "value": 5327.93701172
+      },
+      {
+        "year": 2003,
+        "value": 5732.24365234
+      },
+      {
+        "year": 2004,
+        "value": 6071.84423828
+      },
+      {
+        "year": 2005,
+        "value": 6428.60205078
+      },
+      {
+        "year": 2006,
+        "value": 6802.47509766
+      },
+      {
+        "year": 2007,
+        "value": 7153.73144531
+      },
+      {
+        "year": 2008,
+        "value": 7364.93847656
+      },
+      {
+        "year": 2009,
+        "value": 7614.82421875
+      },
+      {
+        "year": 2010,
+        "value": 7836.08837891
+      },
+      {
+        "year": 2011,
+        "value": 8015.78076172
+      },
+      {
+        "year": 2012,
+        "value": 8262.29296875
+      },
+      {
+        "year": 2013,
+        "value": 8412.25195313
+      },
+      {
+        "year": 2014,
+        "value": 8796.33886719
+      },
+      {
+        "year": 2015,
+        "value": 9200.93164063
+      },
+      {
+        "year": 2016,
+        "value": 9535.60058594
+      },
+      {
+        "year": 2017,
+        "value": 9822.60644531
+      },
+      {
+        "year": 2018,
+        "value": 10180.48242188
+      },
+      {
+        "year": 2019,
+        "value": 10550.22070313
+      },
+      {
+        "year": 2020,
+        "value": 11648.49511719
+      },
+      {
+        "year": 2021,
+        "value": 12080.07324219
+      },
+      {
+        "year": 2022,
+        "value": 12586.19628906
+      },
+      {
+        "year": 2023,
+        "value": 13473.19335938
+      }
+    ],
+    "Health expenditure (% of GDP)": [
+      {
+        "year": 2000,
+        "value": 12.49002075
+      },
+      {
+        "year": 2001,
+        "value": 13.16817093
+      },
+      {
+        "year": 2002,
+        "value": 13.99535275
+      },
+      {
+        "year": 2003,
+        "value": 14.50557518
+      },
+      {
+        "year": 2004,
+        "value": 14.55123138
+      },
+      {
+        "year": 2005,
+        "value": 14.57946205
+      },
+      {
+        "year": 2006,
+        "value": 14.70878792
+      },
+      {
+        "year": 2007,
+        "value": 14.91832542
+      },
+      {
+        "year": 2008,
+        "value": 15.20723629
+      },
+      {
+        "year": 2009,
+        "value": 16.20067596
+      },
+      {
+        "year": 2010,
+        "value": 16.19722366
+      },
+      {
+        "year": 2011,
+        "value": 16.14000511
+      },
+      {
+        "year": 2012,
+        "value": 16.11975479
+      },
+      {
+        "year": 2013,
+        "value": 15.95227051
+      },
+      {
+        "year": 2014,
+        "value": 16.1415844
+      },
+      {
+        "year": 2015,
+        "value": 16.40155411
+      },
+      {
+        "year": 2016,
+        "value": 16.69203949
+      },
+      {
+        "year": 2017,
+        "value": 16.63827515
+      },
+      {
+        "year": 2018,
+        "value": 16.51312637
+      },
+      {
+        "year": 2019,
+        "value": 16.54486084
+      },
+      {
+        "year": 2020,
+        "value": 18.51597404
+      },
+      {
+        "year": 2021,
+        "value": 17.35207748
+      },
+      {
+        "year": 2022,
+        "value": 16.52875137
+      },
+      {
+        "year": 2023,
+        "value": 16.69414902
+      }
+    ],
+    "Life expectancy at birth (years)": [
+      {
+        "year": 2000,
+        "value": 76.6365853658537
+      },
+      {
+        "year": 2001,
+        "value": 76.8365853658537
+      },
+      {
+        "year": 2002,
+        "value": 76.9365853658537
+      },
+      {
+        "year": 2003,
+        "value": 77.0365853658537
+      },
+      {
+        "year": 2004,
+        "value": 77.4878048780488
+      },
+      {
+        "year": 2005,
+        "value": 77.4878048780488
+      },
+      {
+        "year": 2006,
+        "value": 77.6878048780488
+      },
+      {
+        "year": 2007,
+        "value": 77.9878048780488
+      },
+      {
+        "year": 2008,
+        "value": 78.0390243902439
+      },
+      {
+        "year": 2009,
+        "value": 78.390243902439
+      },
+      {
+        "year": 2010,
+        "value": 78.5414634146342
+      },
+      {
+        "year": 2011,
+        "value": 78.6414634146341
+      },
+      {
+        "year": 2012,
+        "value": 78.7414634146342
+      },
+      {
+        "year": 2013,
+        "value": 78.7414634146342
+      },
+      {
+        "year": 2014,
+        "value": 78.8414634146341
+      },
+      {
+        "year": 2015,
+        "value": 78.690243902439
+      },
+      {
+        "year": 2016,
+        "value": 78.5390243902439
+      },
+      {
+        "year": 2017,
+        "value": 78.5390243902439
+      },
+      {
+        "year": 2018,
+        "value": 78.6390243902439
+      },
+      {
+        "year": 2019,
+        "value": 78.7878048780488
+      },
+      {
+        "year": 2020,
+        "value": 76.9804878048781
+      },
+      {
+        "year": 2021,
+        "value": 76.3292682926829
+      },
+      {
+        "year": 2022,
+        "value": 77.4341463414634
+      },
+      {
+        "year": 2023,
+        "value": 78.3853658536585
+      },
+      {
+        "year": 2024,
+        "value": 78.890243902439
+      }
+    ],
+    "Out-of-pocket health spending (% of current health expenditure)": []
+  }
+}

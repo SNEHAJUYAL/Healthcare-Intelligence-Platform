@@ -1,0 +1,679 @@
+{
+  "audit": {
+    "shape": [
+      55500,
+      15
+    ],
+    "dtypes": {
+      "Name": "object",
+      "Age": "int64",
+      "Gender": "object",
+      "Blood Type": "object",
+      "Medical Condition": "object",
+      "Date of Admission": "object",
+      "Doctor": "object",
+      "Hospital": "object",
+      "Insurance Provider": "object",
+      "Billing Amount": "float64",
+      "Room Number": "int64",
+      "Admission Type": "object",
+      "Discharge Date": "object",
+      "Medication": "object",
+      "Test Results": "object"
+    },
+    "missing_values": {
+      "Name": 0,
+      "Age": 0,
+      "Gender": 0,
+      "Blood Type": 0,
+      "Medical Condition": 0,
+      "Date of Admission": 0,
+      "Doctor": 0,
+      "Hospital": 0,
+      "Insurance Provider": 0,
+      "Billing Amount": 0,
+      "Room Number": 0,
+      "Admission Type": 0,
+      "Discharge Date": 0,
+      "Medication": 0,
+      "Test Results": 0
+    },
+    "duplicate_rows": 534,
+    "unique_counts": {
+      "Name": 49992,
+      "Age": 77,
+      "Gender": 2,
+      "Blood Type": 8,
+      "Medical Condition": 6,
+      "Date of Admission": 1827,
+      "Doctor": 40341,
+      "Hospital": 39876,
+      "Insurance Provider": 5,
+      "Billing Amount": 50000,
+      "Room Number": 400,
+      "Admission Type": 3,
+      "Discharge Date": 1856,
+      "Medication": 5,
+      "Test Results": 3
+    },
+    "class_distribution_pct": {
+      "Abnormal": 33.56,
+      "Normal": 33.36,
+      "Inconclusive": 33.07
+    },
+    "cardinality_ratio": {
+      "Name": 0.9008,
+      "Age": 0.0014,
+      "Gender": 0.0,
+      "Blood Type": 0.0001,
+      "Medical Condition": 0.0001,
+      "Date of Admission": 0.0329,
+      "Doctor": 0.7269,
+      "Hospital": 0.7185,
+      "Insurance Provider": 0.0001,
+      "Billing Amount": 0.9009,
+      "Room Number": 0.0072,
+      "Admission Type": 0.0001,
+      "Discharge Date": 0.0334,
+      "Medication": 0.0001,
+      "Test Results": 0.0001
+    },
+    "age_range": [
+      13,
+      89
+    ],
+    "billing_range": [
+      -2008.49,
+      52764.28
+    ],
+    "billing_negative_or_zero": 108,
+    "room_number_range": [
+      101,
+      500
+    ],
+    "independence_tests": {
+      "Gender": {
+        "chi2": 2.018,
+        "p_value": 0.3645,
+        "cramers_v": 0.006
+      },
+      "Blood Type": {
+        "chi2": 7.632,
+        "p_value": 0.9076,
+        "cramers_v": 0.0083
+      },
+      "Medical Condition": {
+        "chi2": 13.255,
+        "p_value": 0.2098,
+        "cramers_v": 0.0109
+      },
+      "Admission Type": {
+        "chi2": 1.32,
+        "p_value": 0.858,
+        "cramers_v": 0.0034
+      },
+      "Insurance Provider": {
+        "chi2": 8.378,
+        "p_value": 0.3975,
+        "cramers_v": 0.0087
+      },
+      "Medication": {
+        "chi2": 3.731,
+        "p_value": 0.8805,
+        "cramers_v": 0.0058
+      },
+      "Age": {
+        "kruskal_h": 3.671,
+        "p_value": 0.1596
+      },
+      "Billing Amount": {
+        "kruskal_h": 1.295,
+        "p_value": 0.5234
+      },
+      "Room Number": {
+        "kruskal_h": 0.827,
+        "p_value": 0.6612
+      }
+    },
+    "signal_verdict_pre_modeling": "All tested features show p-values consistent with statistical independence from Test Results at typical significance thresholds, and effect sizes (Cramer's V) are near zero. This is strong evidence the synthetic generator assigned Test Results with little to no dependence on the other columns -- the dataset likely has a LOW theoretical accuracy ceiling for this target."
+  },
+  "cleaning": {
+    "start_rows": 55500,
+    "dropped_invalid_dates": 0,
+    "dropped_duplicates": 534,
+    "dropped_invalid_categories": 0,
+    "dropped_invalid_numeric": 106,
+    "final_rows": 54860,
+    "retention_pct": 98.85,
+    "identifier_decisions": {
+      "Name": "EXCLUDED \u2014 40167/54860 unique (73.2%); a near-unique identifier carries zero generalizable signal and would only let a model memorize rows.",
+      "Doctor": "EXCLUDED from the clinically-meaningful feature sets (B-F) \u2014 40276/54860 unique (73.4%); 76.7% of doctors appear exactly once. Retained ONLY in Feature Set A via frequency-encoding, to test empirically whether identifier information helps at all.",
+      "Hospital": "Same treatment as Doctor \u2014 39815/54860 unique (72.6%); 80.4% appear once.",
+      "Room Number": "RETAINED as a numeric feature by default (400 distinct values, bounded 101-500 \u2014 moderate cardinality, not an identifier) but explicitly flagged: an earlier pass on this dataset found suspiciously high impurity-based importance for this field. Feature Set F removes it to test whether that importance is real or an artifact."
+    }
+  },
+  "ablation": {
+    "probe_model": "RandomForestClassifier(n_estimators=150, max_depth=12, class_weight=balanced)",
+    "results": {
+      "A_all_features": {
+        "cv_accuracy_mean": 0.3932,
+        "cv_f1_macro_mean": 0.3928,
+        "cv_accuracy_std": 0.0036,
+        "cv_f1_macro_std": 0.0034,
+        "description": "Every available field, including Doctor/Hospital via leakage-safe frequency encoding.",
+        "n_features_raw": 12
+      },
+      "B_no_identifiers": {
+        "cv_accuracy_mean": 0.3944,
+        "cv_f1_macro_mean": 0.3943,
+        "cv_accuracy_std": 0.0023,
+        "cv_f1_macro_std": 0.0023,
+        "description": "All base fields minus Name/Doctor/Hospital identifiers.",
+        "n_features_raw": 10
+      },
+      "C_clinical_operational": {
+        "cv_accuracy_mean": 0.3944,
+        "cv_f1_macro_mean": 0.3943,
+        "cv_accuracy_std": 0.0023,
+        "cv_f1_macro_std": 0.0023,
+        "description": "Clinically/operationally meaningful raw fields only (same as B for this dataset's schema).",
+        "n_features_raw": 10
+      },
+      "D_meaningful_plus_engineered": {
+        "cv_accuracy_mean": 0.3908,
+        "cv_f1_macro_mean": 0.3907,
+        "cv_accuracy_std": 0.0064,
+        "cv_f1_macro_std": 0.0064,
+        "description": "C + every engineered feature.",
+        "n_features_raw": 20
+      },
+      "E_no_billing": {
+        "cv_accuracy_mean": 0.3837,
+        "cv_f1_macro_mean": 0.3836,
+        "cv_accuracy_std": 0.0079,
+        "cv_f1_macro_std": 0.0079,
+        "description": "D minus Billing Amount and its derived feature Billing_per_Stay_Day.",
+        "n_features_raw": 18
+      },
+      "F_no_room_number": {
+        "cv_accuracy_mean": 0.3867,
+        "cv_f1_macro_mean": 0.3867,
+        "cv_accuracy_std": 0.0024,
+        "cv_f1_macro_std": 0.0024,
+        "description": "D minus Room Number.",
+        "n_features_raw": 19
+      }
+    },
+    "winning_config": "B_no_identifiers"
+  },
+  "imbalance": {
+    "class_counts": {
+      "Abnormal": 14719,
+      "Normal": 14642,
+      "Inconclusive": 14527
+    },
+    "imbalance_ratio": 1.013,
+    "results": {
+      "no_balancing": {
+        "cv_accuracy_mean": 0.3922,
+        "cv_f1_macro_mean": 0.3918,
+        "cv_accuracy_std": 0.0022,
+        "cv_f1_macro_std": 0.0021
+      },
+      "class_weight_balanced": {
+        "cv_accuracy_mean": 0.3944,
+        "cv_f1_macro_mean": 0.3943,
+        "cv_accuracy_std": 0.0023,
+        "cv_f1_macro_std": 0.0023
+      },
+      "smote_in_pipeline": {
+        "cv_accuracy_mean": 0.3912,
+        "cv_f1_macro_mean": 0.3912,
+        "cv_accuracy_std": 0.0037,
+        "cv_f1_macro_std": 0.0037
+      }
+    },
+    "decision": "class_weight_balanced",
+    "justification": "Class imbalance ratio is only 1.013x (near-perfectly balanced) \u2014 SMOTE is NOT automatically justified. class_weight='balanced' is used going forward: it matches or beats SMOTE here at zero synthetic-sample cost."
+  },
+  "zoo": {
+    "Majority Baseline": {
+      "cv_accuracy_mean": 0.3354,
+      "cv_accuracy_std": 0.0,
+      "cv_f1_macro_mean": 0.1674,
+      "cv_f1_weighted_mean": 0.1685,
+      "seconds": 0.4
+    },
+    "Logistic Regression": {
+      "cv_accuracy_mean": 0.3315,
+      "cv_accuracy_std": 0.0058,
+      "cv_f1_macro_mean": 0.3312,
+      "cv_f1_weighted_mean": 0.3313,
+      "seconds": 1.2
+    },
+    "Decision Tree": {
+      "cv_accuracy_mean": 0.3392,
+      "cv_accuracy_std": 0.0032,
+      "cv_f1_macro_mean": 0.3122,
+      "cv_f1_weighted_mean": 0.312,
+      "seconds": 1.6
+    },
+    "Random Forest": {
+      "cv_accuracy_mean": 0.3956,
+      "cv_accuracy_std": 0.0025,
+      "cv_f1_macro_mean": 0.3955,
+      "cv_f1_weighted_mean": 0.3955,
+      "seconds": 11.4
+    },
+    "Extra Trees": {
+      "cv_accuracy_mean": 0.3932,
+      "cv_accuracy_std": 0.0036,
+      "cv_f1_macro_mean": 0.3931,
+      "cv_f1_weighted_mean": 0.3932,
+      "seconds": 9.0
+    },
+    "XGBoost": {
+      "cv_accuracy_mean": 0.364,
+      "cv_accuracy_std": 0.0053,
+      "cv_f1_macro_mean": 0.3639,
+      "cv_f1_weighted_mean": 0.364,
+      "seconds": 10.8
+    },
+    "CatBoost": {
+      "cv_accuracy_mean": 0.3535,
+      "cv_accuracy_std": 0.0045,
+      "cv_f1_macro_mean": 0.3534,
+      "cv_f1_weighted_mean": 0.3534,
+      "seconds": 11.4
+    },
+    "LightGBM": {
+      "cv_accuracy_mean": 0.3592,
+      "cv_accuracy_std": 0.0023,
+      "cv_f1_macro_mean": 0.3592,
+      "cv_f1_weighted_mean": 0.3592,
+      "seconds": 16.1
+    },
+    "HistGradientBoosting": {
+      "cv_accuracy_mean": 0.3449,
+      "cv_accuracy_std": 0.006,
+      "cv_f1_macro_mean": 0.3439,
+      "cv_f1_weighted_mean": 0.3439,
+      "seconds": 5.4
+    }
+  },
+  "tuning": {
+    "Random Forest": {
+      "best_params": {
+        "n_estimators": 400,
+        "min_samples_split": 10,
+        "min_samples_leaf": 2,
+        "max_features": 0.5,
+        "max_depth": null
+      },
+      "best_cv_f1_macro": 0.4,
+      "seconds": 362.5
+    },
+    "Extra Trees": {
+      "best_params": {
+        "n_estimators": 400,
+        "min_samples_split": 10,
+        "min_samples_leaf": 2,
+        "max_features": 0.5,
+        "max_depth": null
+      },
+      "best_cv_f1_macro": 0.3978,
+      "seconds": 239.1
+    }
+  },
+  "tuned_cv5": {
+    "Random Forest": {
+      "cv_accuracy_mean": 0.4081,
+      "cv_accuracy_std": 0.0051,
+      "cv_f1_macro_mean": 0.4081,
+      "cv_f1_weighted_mean": 0.4081
+    },
+    "Extra Trees": {
+      "cv_accuracy_mean": 0.4046,
+      "cv_accuracy_std": 0.0058,
+      "cv_f1_macro_mean": 0.4045,
+      "cv_f1_weighted_mean": 0.4045
+    }
+  },
+  "final_model_name": "Random Forest",
+  "selection_candidates": {
+    "Random Forest": {
+      "cv_accuracy": 0.4081,
+      "cv_f1_macro": 0.4081,
+      "cv_f1_std": 0.0051,
+      "train_cv_gap": 0.5918
+    },
+    "Extra Trees": {
+      "cv_accuracy": 0.4046,
+      "cv_f1_macro": 0.4045,
+      "cv_f1_std": 0.0058,
+      "train_cv_gap": 0.5903
+    }
+  },
+  "baseline_test": {
+    "test_accuracy": 0.4048,
+    "test_f1_macro": 0.4046,
+    "test_roc_auc_macro": 0.5799
+  },
+  "final_test": {
+    "test_accuracy": 0.4323,
+    "test_precision_macro": 0.4322,
+    "test_recall_macro": 0.4322,
+    "test_f1_macro": 0.4322,
+    "test_f1_weighted": 0.4322,
+    "test_roc_auc_macro": 0.6234
+  },
+  "mcnemar": {
+    "statistic": 28.6531,
+    "p_value": 0.0,
+    "n_baseline_wrong_final_right": 1732,
+    "n_baseline_right_final_wrong": 1430,
+    "improvement_points": 2.75,
+    "verdict": "McNemar's test p=8.658e-08 \u2014 statistically significant at alpha=0.05: the improvement is unlikely to be chance."
+  },
+  "interpretability": {
+    "native_importance": [
+      {
+        "feature": "num__Billing Amount",
+        "importance": 0.1927
+      },
+      {
+        "feature": "num__Room Number",
+        "importance": 0.1735
+      },
+      {
+        "feature": "num__Age",
+        "importance": 0.1329
+      },
+      {
+        "feature": "num__Length_of_Stay",
+        "importance": 0.1173
+      },
+      {
+        "feature": "cat__Insurance Provider_Cigna",
+        "importance": 0.0147
+      },
+      {
+        "feature": "cat__Medication_Ibuprofen",
+        "importance": 0.0145
+      },
+      {
+        "feature": "cat__Medication_Aspirin",
+        "importance": 0.0144
+      },
+      {
+        "feature": "cat__Medication_Lipitor",
+        "importance": 0.0143
+      },
+      {
+        "feature": "cat__Medication_Penicillin",
+        "importance": 0.0143
+      },
+      {
+        "feature": "cat__Insurance Provider_Unitedhealthcare",
+        "importance": 0.0143
+      },
+      {
+        "feature": "cat__Medication_Paracetamol",
+        "importance": 0.0141
+      },
+      {
+        "feature": "cat__Insurance Provider_Blue Cross",
+        "importance": 0.014
+      },
+      {
+        "feature": "cat__Insurance Provider_Aetna",
+        "importance": 0.0139
+      },
+      {
+        "feature": "cat__Admission Type_Urgent",
+        "importance": 0.0138
+      },
+      {
+        "feature": "cat__Insurance Provider_Medicare",
+        "importance": 0.0137
+      }
+    ],
+    "permutation_importance": [
+      {
+        "feature": "Room Number",
+        "importance_mean": 0.0519,
+        "importance_std": 0.0061
+      },
+      {
+        "feature": "Billing Amount",
+        "importance_mean": 0.0484,
+        "importance_std": 0.0022
+      },
+      {
+        "feature": "Length_of_Stay",
+        "importance_mean": 0.029,
+        "importance_std": 0.0036
+      },
+      {
+        "feature": "Age",
+        "importance_mean": 0.0287,
+        "importance_std": 0.0031
+      },
+      {
+        "feature": "Medical Condition",
+        "importance_mean": 0.0119,
+        "importance_std": 0.0038
+      },
+      {
+        "feature": "Blood Type",
+        "importance_mean": 0.0108,
+        "importance_std": 0.0018
+      },
+      {
+        "feature": "Medication",
+        "importance_mean": 0.0089,
+        "importance_std": 0.0015
+      },
+      {
+        "feature": "Admission Type",
+        "importance_mean": 0.0083,
+        "importance_std": 0.0023
+      },
+      {
+        "feature": "Insurance Provider",
+        "importance_mean": 0.008,
+        "importance_std": 0.0015
+      },
+      {
+        "feature": "Gender",
+        "importance_mean": 0.0063,
+        "importance_std": 0.0018
+      }
+    ],
+    "room_number_artifact_check": {
+      "native_rank": 2,
+      "native_value": 0.1735,
+      "permutation_rank": 1,
+      "permutation_value": 0.0519,
+      "verdict": "Room Number's importance rank is broadly consistent across native and permutation methods -- less evidence of a pure impurity-bias artifact, though it remains clinically meaningless and should not be trusted as a causal driver."
+    },
+    "shap_importance": null
+  },
+  "error_analysis": {
+    "confusion_matrix": [
+      [
+        1638,
+        1006,
+        1036
+      ],
+      [
+        1096,
+        1531,
+        1005
+      ],
+      [
+        1041,
+        1045,
+        1574
+      ]
+    ],
+    "confusion_matrix_normalized": [
+      [
+        0.445,
+        0.273,
+        0.282
+      ],
+      [
+        0.302,
+        0.422,
+        0.277
+      ],
+      [
+        0.284,
+        0.286,
+        0.43
+      ]
+    ],
+    "classification_report": {
+      "Abnormal": {
+        "precision": 0.43390728476821194,
+        "recall": 0.4451086956521739,
+        "f1-score": 0.4394366197183099,
+        "support": 3680.0
+      },
+      "Inconclusive": {
+        "precision": 0.42741485203796764,
+        "recall": 0.4215308370044053,
+        "f1-score": 0.4244524535625173,
+        "support": 3632.0
+      },
+      "Normal": {
+        "precision": 0.43540802213001384,
+        "recall": 0.43005464480874317,
+        "f1-score": 0.4327147766323024,
+        "support": 3660.0
+      },
+      "accuracy": 0.43228217280349984,
+      "macro avg": {
+        "precision": 0.4322433863120645,
+        "recall": 0.43223139248844084,
+        "f1-score": 0.4322012833043765,
+        "support": 10972.0
+      },
+      "weighted avg": {
+        "precision": 0.4322587414823887,
+        "recall": 0.43228217280349984,
+        "f1-score": 0.43223424666210997,
+        "support": 10972.0
+      }
+    },
+    "most_confused_pairs": [
+      {
+        "true": "Inconclusive",
+        "predicted": "Abnormal",
+        "count": 1096
+      },
+      {
+        "true": "Normal",
+        "predicted": "Inconclusive",
+        "count": 1045
+      },
+      {
+        "true": "Normal",
+        "predicted": "Abnormal",
+        "count": 1041
+      },
+      {
+        "true": "Abnormal",
+        "predicted": "Normal",
+        "count": 1036
+      },
+      {
+        "true": "Abnormal",
+        "predicted": "Inconclusive",
+        "count": 1006
+      },
+      {
+        "true": "Inconclusive",
+        "predicted": "Normal",
+        "count": 1005
+      }
+    ],
+    "narrative": "The model struggles primarily because the independence tests in Stage 1 found little to no statistical association between Test Results and any available feature. What lift exists (over the 33% baseline) is concentrated in a few numeric fields and appears partly driven by incidental patterns rather than a strong causal signal, so confusions are spread fairly evenly across all three classes rather than concentrated in one predictable failure mode."
+  },
+  "predictability_final_verdict": "CONFIRMED empirically: best achievable test accuracy across 9 model families and hyperparameter tuning is 43.2%, only +2.75 points above the 40.5% incumbent and 9.9 points above the 33.3% no-information baseline. Combined with near-zero mutual information and non-significant independence tests in Stage 1, this dataset's Test Results column has a LOW theoretical accuracy ceiling with the available features \u2014 the synthetic generator appears to assign it with little to no dependence on the other columns. No amount of further tuning on THIS feature set is expected to substantially change that conclusion; more rows of the same distribution would tighten confidence intervals, not raise the ceiling.",
+  "mutual_information": [
+    {
+      "feature": "Billing Amount",
+      "mutual_information": 0.03323
+    },
+    {
+      "feature": "Medication_Paracetamol",
+      "mutual_information": 0.00637
+    },
+    {
+      "feature": "Insurance Provider_Aetna",
+      "mutual_information": 0.00597
+    },
+    {
+      "feature": "Gender_Female",
+      "mutual_information": 0.00504
+    },
+    {
+      "feature": "Medication_Ibuprofen",
+      "mutual_information": 0.00415
+    },
+    {
+      "feature": "Insurance Provider_Unitedhealthcare",
+      "mutual_information": 0.00394
+    },
+    {
+      "feature": "Medical Condition_Diabetes",
+      "mutual_information": 0.00376
+    },
+    {
+      "feature": "Gender_Male",
+      "mutual_information": 0.00349
+    },
+    {
+      "feature": "Medication_Penicillin",
+      "mutual_information": 0.00322
+    },
+    {
+      "feature": "Blood Type_B-",
+      "mutual_information": 0.00303
+    },
+    {
+      "feature": "Blood Type_A+",
+      "mutual_information": 0.00298
+    },
+    {
+      "feature": "Admission Type_Emergency",
+      "mutual_information": 0.0027
+    },
+    {
+      "feature": "Medical Condition_Obesity",
+      "mutual_information": 0.00244
+    },
+    {
+      "feature": "Medication_Aspirin",
+      "mutual_information": 0.00237
+    },
+    {
+      "feature": "Room Number",
+      "mutual_information": 0.00211
+    }
+  ],
+  "final_model_features": [
+    "Age",
+    "Billing Amount",
+    "Room Number",
+    "Length_of_Stay",
+    "Gender",
+    "Blood Type",
+    "Medical Condition",
+    "Admission Type",
+    "Insurance Provider",
+    "Medication"
+  ]
+}

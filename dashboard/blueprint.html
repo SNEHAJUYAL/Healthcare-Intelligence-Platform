@@ -1,0 +1,793 @@
+<meta charset="UTF-8">
+<title>Healthcare Intelligence Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eef1f2; --surface:#ffffff; --surface-2:#e3e9eb; --surface-3:#d8e0e3;
+    --border:#cdd6d9; --text:#141e26; --text-dim:#51636c;
+    --accent:#1c7d8c; --accent-ink:#ffffff; --accent-soft:#d7ecee;
+    --accent-2:#4d6b8a; --accent-2-soft:#dde6ee;
+    --good:#2f8a52; --warn:#a66a17; --critical:#af4137;
+    --good-soft:#e1f1e5; --warn-soft:#f5e8d3; --critical-soft:#f6e0dd;
+    --shadow: 0 1px 2px rgba(20,30,38,0.06), 0 8px 24px -12px rgba(20,30,38,0.18);
+    --radius: 10px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0a0f13; --surface:#131b21; --surface-2:#1a242b; --surface-3:#212c34;
+      --border:#2a363f; --text:#e7edf0; --text-dim:#8fa3ac;
+      --accent:#4fbccc; --accent-ink:#06181b; --accent-soft:#122a2e;
+      --accent-2:#8aa4c2; --accent-2-soft:#182430;
+      --good:#5cc17c; --warn:#dba14b; --critical:#e08078;
+      --good-soft:#122a1c; --warn-soft:#2c2210; --critical-soft:#301a17;
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 12px 32px -14px rgba(0,0,0,0.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a0f13; --surface:#131b21; --surface-2:#1a242b; --surface-3:#212c34;
+    --border:#2a363f; --text:#e7edf0; --text-dim:#8fa3ac;
+    --accent:#4fbccc; --accent-ink:#06181b; --accent-soft:#122a2e;
+    --accent-2:#8aa4c2; --accent-2-soft:#182430;
+    --good:#5cc17c; --warn:#dba14b; --critical:#e08078;
+    --good-soft:#122a1c; --warn-soft:#2c2210; --critical-soft:#301a17;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 12px 32px -14px rgba(0,0,0,0.6);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Public Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent-soft); }
+  h1,h2,h3{ font-family:"Spectral", Georgia, serif; text-wrap:balance; margin:0; }
+  code, .mono, .tag, .kpi-num, .fig-label{ font-family:"JetBrains Mono", ui-monospace, monospace; }
+  a{ color:var(--accent); }
+
+  .shell{ display:flex; max-width:1320px; margin:0 auto; }
+
+  /* ---------- rail ---------- */
+  .rail{
+    position:sticky; top:0; align-self:flex-start; height:100vh;
+    width:216px; flex:none; padding:28px 14px 28px 24px;
+    display:flex; flex-direction:column; gap:2px;
+    overflow-y:auto;
+  }
+  .rail-brand{
+    font-family:"Spectral", serif; font-weight:600; font-size:1.02rem;
+    margin-bottom:18px; line-height:1.25;
+  }
+  .rail-brand span{ display:block; font-family:"JetBrains Mono"; font-size:0.62rem;
+    letter-spacing:0.12em; text-transform:uppercase; color:var(--text-dim); margin-bottom:6px; }
+  .rail a{
+    text-decoration:none; color:var(--text-dim); font-size:0.83rem; font-weight:500;
+    padding:7px 10px; border-radius:7px; display:flex; gap:9px; align-items:baseline;
+    transition:background .15s, color .15s;
+  }
+  .rail a:hover{ background:var(--surface-2); color:var(--text); }
+  .rail a.active{ background:var(--accent-soft); color:var(--accent); }
+  .rail .num{ font-family:"JetBrains Mono"; font-size:0.68rem; color:var(--text-dim); width:16px; flex:none; }
+
+  /* ---------- main ---------- */
+  main{ flex:1; min-width:0; padding:28px 32px 120px; }
+
+  .sheet{
+    background:var(--surface); border:1px solid var(--border); border-radius:16px;
+    box-shadow:var(--shadow); padding:40px 44px; margin-bottom:28px; position:relative;
+  }
+  .sheet-tag{
+    position:absolute; top:22px; right:28px; font-family:"JetBrains Mono";
+    font-size:0.68rem; letter-spacing:0.08em; color:var(--text-dim);
+    border:1px solid var(--border); border-radius:20px; padding:3px 11px;
+  }
+  .eyebrow{
+    font-family:"JetBrains Mono"; font-size:0.7rem; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 10px;
+  }
+  .sheet h2{ font-size:1.7rem; font-weight:600; margin-bottom:6px; }
+  .sheet .sub{ color:var(--text-dim); font-size:0.96rem; max-width:60ch; margin-bottom:26px; }
+  .sheet .sub:last-of-type{ margin-bottom:0; }
+
+  p{ line-height:1.62; color:var(--text); max-width:68ch; }
+  p.dim{ color:var(--text-dim); }
+
+  /* ---------- cover ---------- */
+  .cover-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:36px; align-items:start; }
+  .cover-title{ font-size:2.5rem; line-height:1.08; font-weight:600; margin-bottom:14px; }
+  .cover-lede{ font-size:1.05rem; color:var(--text-dim); line-height:1.6; max-width:56ch; }
+  .stat-row{ display:flex; gap:28px; margin-top:26px; flex-wrap:wrap; }
+  .stat{ display:flex; flex-direction:column; gap:2px; }
+  .stat .kpi-num{ font-size:1.5rem; font-weight:700; color:var(--accent); }
+  .stat .kpi-lbl{ font-size:0.72rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.06em; }
+  .info-card{ background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:18px 20px; }
+  .info-card + .info-card{ margin-top:14px; }
+  .info-card h3{ font-size:0.95rem; font-weight:600; margin-bottom:8px; font-family:"Public Sans"; }
+  .info-card ul{ margin:0; padding-left:18px; color:var(--text-dim); font-size:0.86rem; line-height:1.6; }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:7px; }
+  .chip{
+    font-size:0.76rem; padding:4px 11px; border-radius:20px; background:var(--surface-3);
+    color:var(--text); border:1px solid var(--border);
+  }
+
+  /* ---------- diagram frame ---------- */
+  .diagram-frame{ overflow-x:auto; margin:8px 0 4px; }
+  .diagram-frame svg{ display:block; min-width:640px; }
+  figure{ margin:0; }
+  figcaption{ font-size:0.82rem; color:var(--text-dim); margin-top:10px; }
+  .node-box{ fill:var(--surface-2); stroke:var(--border); }
+  .node-box.accent{ fill:var(--accent-soft); stroke:var(--accent); }
+  .node-text{ fill:var(--text); font-family:"Public Sans", sans-serif; font-weight:600; }
+  .node-sub{ fill:var(--text-dim); font-family:"Public Sans", sans-serif; }
+  .flow-line{ stroke:var(--text-dim); stroke-width:1.6; fill:none; }
+
+  /* ---------- module cards ---------- */
+  .module-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .module-card{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:12px;
+    padding:18px; display:flex; flex-direction:column; gap:10px;
+  }
+  .module-card .mnum{ font-family:"JetBrains Mono"; font-size:0.72rem; color:var(--accent); }
+  .module-card h3{ font-size:1rem; font-weight:600; font-family:"Public Sans"; }
+  .module-card .aud{ font-size:0.76rem; color:var(--text-dim); }
+  .module-card .stat-line{ font-family:"JetBrains Mono"; font-size:0.85rem; color:var(--accent-2); margin-top:auto; }
+  .module-card p{ font-size:0.82rem; color:var(--text-dim); line-height:1.5; margin:0; }
+
+  /* ---------- wireframes ---------- */
+  .wf-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .wf-card{ border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--surface-2); }
+  .wf-head{ padding:10px 14px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+  .wf-head .wf-title{ font-size:0.82rem; font-weight:700; }
+  .wf-head .wf-idx{ font-family:"JetBrains Mono"; font-size:0.68rem; color:var(--text-dim); }
+  .wf-body{ padding:12px; display:flex; flex-direction:column; gap:8px; }
+  .wf-kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  .wf-kpis div{ height:26px; background:var(--surface-3); border-radius:5px; }
+  .wf-chart{ height:56px; background:var(--surface-3); border-radius:5px; position:relative; overflow:hidden; }
+  .wf-chart::after{
+    content:""; position:absolute; inset:8px 6px 6px; background:
+      linear-gradient(90deg, transparent 0 4px, var(--accent) 4px 4px) ;
+  }
+  .wf-row{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .wf-row div{ height:38px; background:var(--surface-3); border-radius:5px; }
+  .wf-list{ font-size:0.72rem; color:var(--text-dim); line-height:1.6; padding:0 12px 12px; margin:0; }
+
+  /* ---------- recommendations table ---------- */
+  table{ width:100%; border-collapse:collapse; font-size:0.86rem; }
+  th{
+    text-align:left; font-family:"JetBrains Mono"; font-size:0.68rem; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--text-dim); padding:0 12px 10px; border-bottom:1px solid var(--border);
+  }
+  td{ padding:12px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.5; }
+  tr:last-child td{ border-bottom:none; }
+  .pill{ font-family:"JetBrains Mono"; font-size:0.7rem; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+  .pill.high{ background:var(--critical-soft); color:var(--critical); }
+  .pill.medium{ background:var(--warn-soft); color:var(--warn); }
+  .pill.low{ background:var(--good-soft); color:var(--good); }
+  .table-wrap{ overflow-x:auto; }
+
+  /* ---------- stack ---------- */
+  .stack-flow{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .stack-item{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:9px;
+    padding:9px 16px; font-size:0.85rem; font-weight:600; display:flex; gap:8px; align-items:center;
+  }
+  .stack-item .role{ font-family:"JetBrains Mono"; font-size:0.65rem; color:var(--text-dim); font-weight:400; }
+  .stack-arrow{ color:var(--text-dim); }
+
+  /* ---------- future scope ---------- */
+  .scope-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .scope-item{
+    border:1px dashed var(--border); border-radius:10px; padding:14px 16px;
+    font-size:0.85rem; color:var(--text-dim); display:flex; gap:10px; align-items:flex-start;
+  }
+  .scope-item .dot{ width:6px; height:6px; border-radius:50%; background:var(--accent); margin-top:7px; flex:none; }
+
+  @media (max-width: 980px){
+    .rail{ display:none; }
+    .cover-grid, .module-grid, .wf-grid, .scope-grid{ grid-template-columns:1fr; }
+    .sheet{ padding:26px 20px; }
+  }
+</style>
+
+<div class="shell">
+  <nav class="rail" id="rail">
+    <div class="rail-brand"><span>Blueprint</span>Healthcare Intelligence Platform</div>
+    <a href="#p01"><span class="num">01</span>Overview</a>
+    <a href="#p02"><span class="num">02</span>Architecture</a>
+    <a href="#p03"><span class="num">03</span>Data Model</a>
+    <a href="#p04"><span class="num">04</span>Data Workflow</a>
+    <a href="#p05"><span class="num">05</span>Analytics Modules</a>
+    <a href="#p06"><span class="num">06</span>Tableau Wireframes</a>
+    <a href="#p07"><span class="num">07</span>ML Pipeline</a>
+    <a href="#p08"><span class="num">08</span>Recommendations</a>
+    <a href="#p09"><span class="num">09</span>Technology Stack</a>
+    <a href="#p10"><span class="num">10</span>Future Scope</a>
+    <a href="#p11"><span class="num">11</span>Reality Check</a>
+    <a href="#p12"><span class="num">12</span>Global Context</a>
+  </nav>
+
+  <main>
+
+  <!-- ============================================================ PAGE 01 -->
+  <section class="sheet" id="p01">
+    <div class="sheet-tag">PAGE 01 / 12</div>
+    <p class="eyebrow">Project Overview</p>
+    <div class="cover-grid">
+      <div>
+        <h1 class="cover-title">Healthcare Intelligence Platform</h1>
+        <p class="cover-lede">
+          An end-to-end framework that turns 54,860 raw patient-admission records into
+          executive, operational, financial, and predictive intelligence — built to show
+          <em>how</em> a hospital system decides, not just what a dataset contains.
+        </p>
+        <div class="stat-row">
+          <div class="stat"><span class="kpi-num">54,860</span><span class="kpi-lbl">Admissions analyzed</span></div>
+          <div class="stat"><span class="kpi-num">$1.40B</span><span class="kpi-lbl">Total billing</span></div>
+          <div class="stat"><span class="kpi-num">8</span><span class="kpi-lbl">Analytics modules</span></div>
+          <div class="stat"><span class="kpi-num">6</span><span class="kpi-lbl">ML models compared</span></div>
+        </div>
+        <div style="margin-top:28px;">
+          <p class="eyebrow" style="margin-bottom:8px;">Business Problem</p>
+          <p class="dim">
+            Hospital leadership holds large volumes of operational and patient data but lacks
+            one consolidated view of volume, performance, revenue, insurance patterns, doctor
+            workload, disease trends, and resource demand — so decisions get made on
+            fragments rather than the whole system.
+          </p>
+        </div>
+        <div style="margin-top:22px;">
+          <p class="eyebrow" style="margin-bottom:8px;">Business Objective</p>
+          <p class="dim">
+            Give management a single decision-support layer spanning descriptive, diagnostic,
+            predictive, and prescriptive analytics — moving from
+            <strong style="color:var(--text)">Data → Chart → Model Accuracy</strong> to
+            <strong style="color:var(--text)">Data → Insight → Prediction → Decision</strong>.
+          </p>
+        </div>
+      </div>
+      <div>
+        <div class="info-card">
+          <h3>Stakeholders</h3>
+          <ul>
+            <li>CEO / Hospital Director — executive oversight</li>
+            <li>Operations Manager — hospital benchmarking</li>
+            <li>Finance / Revenue Management — cost &amp; billing</li>
+            <li>Insurance / Revenue Cycle — payer analysis</li>
+            <li>Medical Director — doctor workload</li>
+            <li>Clinical Management — patient population</li>
+            <li>Capacity Planning — resource demand</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Key Questions</h3>
+          <ul>
+            <li>What is happening across the system right now?</li>
+            <li>Where are the operational and financial pressure points?</li>
+            <li>What is driving cost, capacity, and workload patterns?</li>
+            <li>What could happen, and what should management do next?</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Expected Impact</h3>
+          <p style="margin:0; font-size:0.86rem; color:var(--text-dim); line-height:1.6;">
+            A reusable decision-support layer — not a one-time report — that replaces
+            fragmented spreadsheet views with a governed fact/dimension model feeding both
+            executive dashboards and a predictive-analytics prototype.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PAGE 02 -->
+  <section class="sheet" id="p02">
+    <div class="sheet-tag">PAGE 02 / 12</div>
+    <p class="eyebrow">Solution Architecture</p>
+    <h2>Dataset to Decision Support</h2>
+    <p class="sub">One linear pipeline feeds eight parallel analytics modules, which converge back into a single executive reporting layer.</p>
+
+    <div class="diagram-frame">
+      <figure>
+        <svg viewBox="0 0 1400 940" role="img" aria-label="Pipeline flowing from Healthcare Dataset through ingestion, cleaning, EDA, feature engineering, and the analytical data model into a Business Analytics and ML engine, which branches into eight parallel analytics modules, then converges into the Tableau Intelligence Layer, Executive Dashboard, and finally Business Recommendations and Decision Support.">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <g class="flow-line" style="color:var(--text-dim)" marker-end="url(#arrow)" fill="none">
+            <line x1="700" y1="70" x2="700" y2="94"/>
+            <line x1="700" y1="150" x2="700" y2="174"/>
+            <line x1="700" y1="230" x2="700" y2="254"/>
+            <line x1="700" y1="310" x2="700" y2="334"/>
+            <line x1="700" y1="390" x2="700" y2="414"/>
+            <line x1="700" y1="470" x2="700" y2="494"/>
+          </g>
+          <g class="flow-line" style="color:var(--text-dim)" fill="none">
+            <line x1="700" y1="550" x2="700" y2="572"/>
+            <line x1="119" y1="572" x2="1281" y2="572"/>
+            <line x1="119" y1="572" x2="119" y2="590" marker-end="url(#arrow)"/>
+            <line x1="285" y1="572" x2="285" y2="590" marker-end="url(#arrow)"/>
+            <line x1="451" y1="572" x2="451" y2="590" marker-end="url(#arrow)"/>
+            <line x1="617" y1="572" x2="617" y2="590" marker-end="url(#arrow)"/>
+            <line x1="783" y1="572" x2="783" y2="590" marker-end="url(#arrow)"/>
+            <line x1="949" y1="572" x2="949" y2="590" marker-end="url(#arrow)"/>
+            <line x1="1115" y1="572" x2="1115" y2="590" marker-end="url(#arrow)"/>
+            <line x1="1281" y1="572" x2="1281" y2="590" marker-end="url(#arrow)"/>
+
+            <line x1="119" y1="652" x2="119" y2="676"/>
+            <line x1="285" y1="652" x2="285" y2="676"/>
+            <line x1="451" y1="652" x2="451" y2="676"/>
+            <line x1="617" y1="652" x2="617" y2="676"/>
+            <line x1="783" y1="652" x2="783" y2="676"/>
+            <line x1="949" y1="652" x2="949" y2="676"/>
+            <line x1="1115" y1="652" x2="1115" y2="676"/>
+            <line x1="1281" y1="652" x2="1281" y2="676"/>
+            <line x1="119" y1="676" x2="1281" y2="676"/>
+            <line x1="700" y1="676" x2="700" y2="698" marker-end="url(#arrow)"/>
+          </g>
+          <g class="flow-line" style="color:var(--text-dim)" marker-end="url(#arrow)" fill="none">
+            <line x1="700" y1="754" x2="700" y2="778"/>
+            <line x1="700" y1="834" x2="700" y2="858"/>
+          </g>
+
+          <!-- main chain -->
+          <g>
+            <rect class="node-box" x="550" y="16" width="300" height="54" rx="9"/>
+            <text class="node-text" x="700" y="48" text-anchor="middle" font-size="15">Healthcare Dataset</text>
+
+            <rect class="node-box" x="550" y="96" width="300" height="54" rx="9"/>
+            <text class="node-text" x="700" y="128" text-anchor="middle" font-size="15">Data Ingestion</text>
+
+            <rect class="node-box" x="550" y="176" width="300" height="54" rx="9"/>
+            <text class="node-text" x="700" y="208" text-anchor="middle" font-size="15">Data Cleaning &amp; Validation</text>
+
+            <rect class="node-box" x="550" y="256" width="300" height="54" rx="9"/>
+            <text class="node-text" x="700" y="288" text-anchor="middle" font-size="15">Exploratory Data Analysis</text>
+
+            <rect class="node-box" x="550" y="336" width="300" height="54" rx="9"/>
+            <text class="node-text" x="700" y="368" text-anchor="middle" font-size="15">Feature Engineering</text>
+
+            <rect class="node-box" x="530" y="416" width="340" height="54" rx="9"/>
+            <text class="node-text" x="700" y="448" text-anchor="middle" font-size="14.5">Analytical Data Model (Star Schema)</text>
+
+            <rect class="node-box accent" x="510" y="496" width="380" height="54" rx="9"/>
+            <text class="node-text" x="700" y="528" text-anchor="middle" font-size="15" fill="var(--accent)">Business Analytics &amp; ML Engine</text>
+          </g>
+
+          <!-- 8 modules -->
+          <g font-size="12.5">
+            <rect class="node-box accent" x="44" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="119" y="618" text-anchor="middle" fill="var(--accent)">Executive</text>
+            <text class="node-text" x="119" y="634" text-anchor="middle" fill="var(--accent)">Analytics</text>
+
+            <rect class="node-box accent" x="210" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="285" y="618" text-anchor="middle" fill="var(--accent)">Hospital</text>
+            <text class="node-text" x="285" y="634" text-anchor="middle" fill="var(--accent)">Performance</text>
+
+            <rect class="node-box accent" x="376" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="451" y="618" text-anchor="middle" fill="var(--accent)">Financial</text>
+            <text class="node-text" x="451" y="634" text-anchor="middle" fill="var(--accent)">Analytics</text>
+
+            <rect class="node-box accent" x="542" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="617" y="618" text-anchor="middle" fill="var(--accent)">Insurance</text>
+            <text class="node-text" x="617" y="634" text-anchor="middle" fill="var(--accent)">Analytics</text>
+
+            <rect class="node-box accent" x="708" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="783" y="618" text-anchor="middle" fill="var(--accent)">Doctor</text>
+            <text class="node-text" x="783" y="634" text-anchor="middle" fill="var(--accent)">Performance</text>
+
+            <rect class="node-box accent" x="874" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="949" y="618" text-anchor="middle" fill="var(--accent)">Patient</text>
+            <text class="node-text" x="949" y="634" text-anchor="middle" fill="var(--accent)">Analytics</text>
+
+            <rect class="node-box accent" x="1040" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="1115" y="618" text-anchor="middle" fill="var(--accent)">Resource</text>
+            <text class="node-text" x="1115" y="634" text-anchor="middle" fill="var(--accent)">Planning</text>
+
+            <rect class="node-box accent" x="1206" y="592" width="150" height="60" rx="8"/>
+            <text class="node-text" x="1281" y="618" text-anchor="middle" fill="var(--accent)">Predictive</text>
+            <text class="node-text" x="1281" y="634" text-anchor="middle" fill="var(--accent)">Analytics</text>
+          </g>
+
+          <g>
+            <rect class="node-box" x="550" y="698" width="300" height="56" rx="9"/>
+            <text class="node-text" x="700" y="731" text-anchor="middle" font-size="14.5">Tableau Intelligence Layer</text>
+
+            <rect class="node-box" x="550" y="778" width="300" height="56" rx="9"/>
+            <text class="node-text" x="700" y="811" text-anchor="middle" font-size="15">Executive Dashboard</text>
+
+            <rect class="node-box accent" x="480" y="858" width="440" height="66" rx="9"/>
+            <text class="node-text" x="700" y="885" text-anchor="middle" font-size="14.5" fill="var(--accent)">Business Recommendations</text>
+            <text class="node-sub" x="700" y="905" text-anchor="middle" font-size="12">→ Decision Support</text>
+          </g>
+        </svg>
+      </figure>
+      <figcaption>One ingestion-to-decision pipeline; the analytics engine fans out into eight parallel modules and converges back into a single reporting and recommendation layer.</figcaption>
+    </div>
+  </section>
+
+  <!-- ============================================================ PAGE 03 -->
+  <section class="sheet" id="p03">
+    <div class="sheet-tag">PAGE 03 / 12</div>
+    <p class="eyebrow">Data Model</p>
+    <h2>Patient / Admission Star Schema</h2>
+    <p class="sub">One fact table carrying billing and stay measures, surrounded by eight conformed dimensions — built as CSV extracts under <code>data/model/</code>, ready to load into Tableau or any BI tool.</p>
+
+    <div class="diagram-frame">
+      <figure>
+        <svg viewBox="0 0 900 760" role="img" aria-label="Star schema diagram: a central Patient/Admission Fact table connected to eight surrounding dimension tables — Date, Hospital, Doctor, Insurance Provider, Medication, Admission Type, Medical Condition, and Patient.">
+          <g class="flow-line" style="color:var(--border)" stroke-width="1.4">
+            <line x1="450" y1="380" x2="450" y2="137"/>
+            <line x1="450" y1="380" x2="641" y2="189"/>
+            <line x1="450" y1="380" x2="720" y2="380"/>
+            <line x1="450" y1="380" x2="641" y2="571"/>
+            <line x1="450" y1="380" x2="450" y2="623"/>
+            <line x1="450" y1="380" x2="259" y2="571"/>
+            <line x1="450" y1="380" x2="180" y2="380"/>
+            <line x1="450" y1="380" x2="259" y2="189"/>
+          </g>
+
+          <rect class="node-box accent" x="360" y="345" width="180" height="70" rx="10"/>
+          <text class="node-text" x="450" y="374" text-anchor="middle" font-size="14" fill="var(--accent)">FACT</text>
+          <text class="node-text" x="450" y="393" text-anchor="middle" font-size="13.5" fill="var(--accent)">Patient / Admission</text>
+
+          <g font-size="12.5">
+            <rect class="node-box" x="375" y="83" width="150" height="54" rx="8"/>
+            <text class="node-text" x="450" y="115" text-anchor="middle">dim_date</text>
+
+            <rect class="node-box" x="566" y="162" width="150" height="54" rx="8"/>
+            <text class="node-text" x="641" y="194" text-anchor="middle">dim_hospital</text>
+
+            <rect class="node-box" x="645" y="353" width="150" height="54" rx="8"/>
+            <text class="node-text" x="720" y="385" text-anchor="middle">dim_doctor</text>
+
+            <rect class="node-box" x="566" y="544" width="150" height="54" rx="8"/>
+            <text class="node-text" x="641" y="576" text-anchor="middle">dim_insurance</text>
+
+            <rect class="node-box" x="375" y="623" width="150" height="54" rx="8"/>
+            <text class="node-text" x="450" y="655" text-anchor="middle">dim_medication</text>
+
+            <rect class="node-box" x="184" y="544" width="150" height="54" rx="8"/>
+            <text class="node-text" x="259" y="576" text-anchor="middle">dim_admission_type</text>
+
+            <rect class="node-box" x="105" y="353" width="150" height="54" rx="8"/>
+            <text class="node-text" x="180" y="385" text-anchor="middle">dim_condition</text>
+
+            <rect class="node-box" x="184" y="162" width="150" height="54" rx="8"/>
+            <text class="node-text" x="259" y="194" text-anchor="middle">dim_patient</text>
+          </g>
+        </svg>
+      </figure>
+      <figcaption>Fact measures: billing amount, length of stay, room number, test result, plus derived flags (emergency, high-billing, long-stay, high-utilization). Each dimension carries its own conformed surrogate key.</figcaption>
+    </div>
+  </section>
+
+  <!-- ============================================================ PAGE 04 -->
+  <section class="sheet" id="p04">
+    <div class="sheet-tag">PAGE 04 / 12</div>
+    <p class="eyebrow">Data Workflow</p>
+    <h2>From Raw Records to Recommendations</h2>
+    <p class="sub">The eight stages that transform 55,500 raw rows into a governed analytical model and a set of dated business recommendations.</p>
+
+    <div class="diagram-frame">
+      <figure>
+        <svg viewBox="0 0 1500 150" role="img" aria-label="Linear workflow: Dataset, then Cleaning, then Exploratory Data Analysis, then Feature Engineering, then Data Model, then Analytics and ML, then Tableau, then Recommendations.">
+          <defs>
+            <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <g class="flow-line" style="color:var(--text-dim)" marker-end="url(#arrow2)">
+            <line x1="195" y1="80" x2="225" y2="80"/>
+            <line x1="375" y1="80" x2="405" y2="80"/>
+            <line x1="555" y1="80" x2="585" y2="80"/>
+            <line x1="735" y1="80" x2="765" y2="80"/>
+            <line x1="915" y1="80" x2="945" y2="80"/>
+            <line x1="1095" y1="80" x2="1125" y2="80"/>
+            <line x1="1275" y1="80" x2="1305" y2="80"/>
+          </g>
+          <g font-size="12.5">
+            <rect class="node-box" x="45" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="120" y="84" text-anchor="middle">Dataset</text>
+            <rect class="node-box" x="225" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="300" y="84" text-anchor="middle">Cleaning</text>
+            <rect class="node-box" x="405" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="480" y="84" text-anchor="middle">EDA</text>
+            <rect class="node-box" x="585" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="660" y="78" text-anchor="middle">Feature</text>
+            <text class="node-text" x="660" y="94" text-anchor="middle">Engineering</text>
+            <rect class="node-box" x="765" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="840" y="78" text-anchor="middle">Data</text>
+            <text class="node-text" x="840" y="94" text-anchor="middle">Model</text>
+            <rect class="node-box accent" x="945" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="1020" y="78" text-anchor="middle" fill="var(--accent)">Analytics</text>
+            <text class="node-text" x="1020" y="94" text-anchor="middle" fill="var(--accent)">&amp; ML</text>
+            <rect class="node-box" x="1125" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="1200" y="84" text-anchor="middle">Tableau</text>
+            <rect class="node-box accent" x="1305" y="50" width="150" height="60" rx="8"/>
+            <text class="node-text" x="1380" y="78" text-anchor="middle" fill="var(--accent)">Recommen-</text>
+            <text class="node-text" x="1380" y="94" text-anchor="middle" fill="var(--accent)">dations</text>
+          </g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================================================ PAGE 05 -->
+  <section class="sheet" id="p05">
+    <div class="sheet-tag">PAGE 05 / 12</div>
+    <p class="eyebrow">Eight Analytics Modules</p>
+    <h2>One Engine, Eight Audiences</h2>
+    <p class="sub">Every module reads from the same star schema — the difference is who is asking, and which slice of the fact table answers their question.</p>
+
+    <div class="module-grid" id="module-grid"></div>
+  </section>
+
+  <!-- ============================================================ PAGE 06 -->
+  <section class="sheet" id="p06">
+    <div class="sheet-tag">PAGE 06 / 12</div>
+    <p class="eyebrow">Tableau Wireframes</p>
+    <h2>Nine-Page Workbook Layout</h2>
+    <p class="sub">Low-fidelity layout plan for the Tableau workbook — the fully rendered, interactive version of these nine pages lives in the companion <strong>Healthcare Intelligence Console</strong> artifact.</p>
+
+    <div class="wf-grid" id="wf-grid"></div>
+  </section>
+
+  <!-- ============================================================ PAGE 07 -->
+  <section class="sheet" id="p07">
+    <div class="sheet-tag">PAGE 07 / 12</div>
+    <p class="eyebrow">Machine Learning Pipeline</p>
+    <h2>Predicting Test Results — Leakage-Conscious Design</h2>
+    <p class="sub">Twelve stages, read left-to-right then wrapping down a row — the train/test split happens before any resampling, and SMOTE (where used) only ever touches a CV training fold.</p>
+
+    <div class="diagram-frame">
+      <figure>
+        <svg viewBox="0 0 1200 500" role="img" aria-label="ML pipeline flowchart in three rows: row one — Dataset, Feature Selection, Train/Test Split, Encoding; row two, reading right to left — Scaling, Imbalance Handling, Cross Validation, Model Training; row three — Model Comparison, Best Model, Prediction, Interpretation.">
+          <defs>
+            <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+            </marker>
+          </defs>
+          <g class="flow-line" style="color:var(--text-dim)" marker-end="url(#arrow3)">
+            <line x1="290" y1="60" x2="325" y2="60"/>
+            <line x1="580" y1="60" x2="615" y2="60"/>
+            <line x1="870" y1="60" x2="905" y2="60"/>
+            <line x1="1035" y1="90" x2="1035" y2="200"/>
+
+            <line x1="905" y1="230" x2="870" y2="230"/>
+            <line x1="615" y1="230" x2="580" y2="230"/>
+            <line x1="325" y1="230" x2="290" y2="230"/>
+            <line x1="165" y1="260" x2="165" y2="370"/>
+
+            <line x1="290" y1="400" x2="325" y2="400"/>
+            <line x1="580" y1="400" x2="615" y2="400"/>
+            <line x1="870" y1="400" x2="905" y2="400"/>
+          </g>
+          <g font-size="13">
+            <!-- row 1 -->
+            <rect class="node-box" x="40" y="30" width="250" height="60" rx="8"/>
+            <text class="node-text" x="165" y="65" text-anchor="middle">Dataset</text>
+            <rect class="node-box" x="330" y="30" width="250" height="60" rx="8"/>
+            <text class="node-text" x="455" y="65" text-anchor="middle">Feature Selection</text>
+            <rect class="node-box" x="620" y="30" width="250" height="60" rx="8"/>
+            <text class="node-text" x="745" y="65" text-anchor="middle">Train / Test Split</text>
+            <rect class="node-box" x="910" y="30" width="250" height="60" rx="8"/>
+            <text class="node-text" x="1035" y="65" text-anchor="middle">Encoding</text>
+
+            <!-- row 2 -->
+            <rect class="node-box" x="910" y="200" width="250" height="60" rx="8"/>
+            <text class="node-text" x="1035" y="235" text-anchor="middle">Scaling</text>
+            <rect class="node-box" x="620" y="200" width="250" height="60" rx="8"/>
+            <text class="node-text" x="745" y="235" text-anchor="middle">Imbalance Handling</text>
+            <rect class="node-box" x="330" y="200" width="250" height="60" rx="8"/>
+            <text class="node-text" x="455" y="235" text-anchor="middle">Cross Validation</text>
+            <rect class="node-box" x="40" y="200" width="250" height="60" rx="8"/>
+            <text class="node-text" x="165" y="235" text-anchor="middle">Model Training</text>
+
+            <!-- row 3 -->
+            <rect class="node-box" x="40" y="370" width="250" height="60" rx="8"/>
+            <text class="node-text" x="165" y="405" text-anchor="middle">Model Comparison</text>
+            <rect class="node-box accent" x="330" y="370" width="250" height="60" rx="8"/>
+            <text class="node-text" x="455" y="405" text-anchor="middle" fill="var(--accent)">Best Model</text>
+            <rect class="node-box" x="620" y="370" width="250" height="60" rx="8"/>
+            <text class="node-text" x="745" y="405" text-anchor="middle">Prediction</text>
+            <rect class="node-box accent" x="910" y="370" width="250" height="60" rx="8"/>
+            <text class="node-text" x="1035" y="405" text-anchor="middle" fill="var(--accent)">Interpretation</text>
+          </g>
+        </svg>
+      </figure>
+      <figcaption>Models compared: Logistic Regression, Decision Tree, Random Forest, XGBoost, CatBoost, and a Stacking Ensemble — see the Console artifact for the completed accuracy/F1/ROC-AUC comparison and confusion matrices.</figcaption>
+    </div>
+  </section>
+
+  <!-- ============================================================ PAGE 08 -->
+  <section class="sheet" id="p08">
+    <div class="sheet-tag">PAGE 08 / 12</div>
+    <p class="eyebrow">Business Recommendations</p>
+    <h2>Finding → Impact → Recommendation → Priority</h2>
+    <p class="sub">Every row is computed from <code>data/model/module_metrics.json</code> — see <code>reports/03_business_recommendations.md</code> for the full write-up, including which patterns are real and which the data shows are flat.</p>
+    <div class="table-wrap" id="reco-table"></div>
+  </section>
+
+  <!-- ============================================================ PAGE 09 -->
+  <section class="sheet" id="p09">
+    <div class="sheet-tag">PAGE 09 / 12</div>
+    <p class="eyebrow">Technology Stack</p>
+    <h2>What Built This</h2>
+    <div class="stack-flow">
+      <div class="stack-item">Python <span class="role">core language</span></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item">Pandas / NumPy <span class="role">ingestion &amp; features</span></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item">Scikit-learn <span class="role">pipelines &amp; CV</span></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item">XGBoost / CatBoost <span class="role">gradient boosting</span></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item">Imbalanced-learn <span class="role">SMOTE</span></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item">Tableau-ready extracts <span class="role">BI layer</span></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item">Git / GitHub <span class="role">version control</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PAGE 10 -->
+  <section class="sheet" id="p10">
+    <div class="sheet-tag">PAGE 10 / 12</div>
+    <p class="eyebrow">Future Scope</p>
+    <h2>What Real Deployment Would Add</h2>
+    <p class="sub">This platform is built on a single synthetic snapshot. These are the data sources that would turn it from a decision-support prototype into an operational system.</p>
+    <div class="scope-grid">
+      <div class="scope-item"><span class="dot"></span>Real-time hospital admission feeds</div>
+      <div class="scope-item"><span class="dot"></span>Actual bed availability &amp; occupancy data</div>
+      <div class="scope-item"><span class="dot"></span>Staffing and shift-roster data</div>
+      <div class="scope-item"><span class="dot"></span>Doctor schedules and specialty mix</div>
+      <div class="scope-item"><span class="dot"></span>Patient outcomes beyond a single test result</div>
+      <div class="scope-item"><span class="dot"></span>Actual insurance claims data</div>
+      <div class="scope-item"><span class="dot"></span>Procedure-level cost data</div>
+      <div class="scope-item"><span class="dot"></span>Real-time prediction serving</div>
+      <div class="scope-item"><span class="dot"></span>Hospital-wide, multi-site deployment</div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PAGE 11 -->
+  <section class="sheet" id="p11">
+    <div class="sheet-tag">PAGE 11 / 12</div>
+    <p class="eyebrow">Reality Check</p>
+    <h2>How Synthetic Is This, Really?</h2>
+    <p class="sub">Every module so far describes what the dataset contains. This page benchmarks it against published US healthcare statistics — every figure below is a named public source, not an estimate. Full detail and links: <code>reports/04_reality_check.md</code>; interactive version: the Console artifact's <strong>Reality Check</strong> tab.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Platform</th><th>Real-world</th><th>Gap</th></tr></thead>
+        <tbody>
+          <tr><td>Average length of stay</td><td>15.5 days</td><td>~4.5–5.2 days</td><td><span class="pill high">3.2x longer</span></td></tr>
+          <tr><td>Billing / expense per stay-day</td><td>$3,399</td><td>$3,132</td><td><span class="pill low">1.09x — but different units (charge vs. cost)</span></td></tr>
+          <tr><td>Emergency-channel share of admissions</td><td>32.9%</td><td>~70% of admissions arrive via the ED</td><td><span class="pill high">largest gap</span></td></tr>
+          <tr><td>Insurance payer spread</td><td>19.7%–20.3% (near-uniform)</td><td>Employer-sponsored dominates; ~8% uninsured</td><td><span class="pill medium">structurally different</span></td></tr>
+          <tr><td>Disease admission mix</td><td>16.5%–16.8% each (near-uniform)</td><td>7.7%–47.7% (6x spread) population prevalence</td><td><span class="pill medium">not a like-for-like metric, shown for contrast</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dim" style="margin-top:16px; font-size:0.86rem;">
+      Sources: <a href="https://www.definitivehc.com/resources/healthcare-insights/average-length-stay-hospital" target="_blank" rel="noopener">Definitive Healthcare</a> ·
+      <a href="https://www.kff.org/health-costs/state-indicator/expenses-per-inpatient-day/" target="_blank" rel="noopener">KFF</a> ·
+      <a href="https://www.acepnow.com/article/latest-data-reveal-the-eds-role-as-hospital-admission-gatekeeper/2/" target="_blank" rel="noopener">ACEP Now / NHAMCS</a> ·
+      <a href="https://www.census.gov/library/publications/2024/demo/p60-284.html" target="_blank" rel="noopener">US Census Bureau</a> ·
+      CDC/NCHS Data Briefs 508, 511, 516 · <a href="https://seer.cancer.gov/statfacts/html/all.html" target="_blank" rel="noopener">NCI SEER</a>.
+    </p>
+  </section>
+
+  <!-- ============================================================ PAGE 12 -->
+  <section class="sheet" id="p12">
+    <div class="sheet-tag">PAGE 12 / 12</div>
+    <p class="eyebrow">Global Context</p>
+    <h2>A Real Dataset, Not Just Cited Statistics</h2>
+    <p class="sub">Every prior page cites published figures. This page is different: it's a genuine external <strong>dataset</strong> fetched live from a public API and cached in the repository — <code>data/external/worldbank_health_indicators.csv</code>, 692 real observations, 2000–2024, US plus 5 peer countries. Source: <a href="https://data.worldbank.org/indicator" target="_blank" rel="noopener">World Bank Open Data</a> (CC BY 4.0, no key required), fetched by <code>scripts/07_external_worldbank_data.py</code>.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Country</th><th>Hospital beds /1,000</th><th>Physicians /1,000</th><th>Health spend / capita</th><th>Health spend (% GDP)</th><th>Life expectancy</th></tr></thead>
+        <tbody>
+          <tr><td>United States</td><td>2.68</td><td>3.68</td><td>$13,473</td><td><strong>16.7%</strong></td><td>78.9 yrs</td></tr>
+          <tr><td>United Kingdom</td><td>2.42</td><td>3.30</td><td>$5,860</td><td>11.1%</td><td>81.4 yrs</td></tr>
+          <tr><td>Germany</td><td>7.55</td><td><strong>4.53</strong></td><td>$6,849</td><td>12.3%</td><td>80.8 yrs</td></tr>
+          <tr><td>Canada</td><td>2.54</td><td>2.82</td><td>$6,378</td><td>11.3%</td><td>82.1 yrs</td></tr>
+          <tr><td>France</td><td>5.65</td><td>3.28</td><td>$5,327</td><td>11.5%</td><td>83.0 yrs</td></tr>
+          <tr><td>Japan</td><td><strong>12.59</strong></td><td>2.65</td><td>$3,638</td><td>10.7%</td><td>84.0 yrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="dim" style="margin-top:16px; font-size:0.86rem;">
+      This is national-level context, not a merged dimension — the platform's synthetic admissions have no
+      country field to join on. But it grounds two modules the dataset can't ground alone: the US runs on
+      roughly a fifth of Japan's hospital-bed capacity per capita, and a single admission in this dataset
+      ($25,594 avg. billing) costs roughly <strong>1.9x the entire annual per-capita US health spend</strong>
+      ($13,473). Full reasoning: <code>reports/05_external_data_sources.md</code>; interactive version: the
+      Console artifact's <strong>Global Context</strong> tab.
+    </p>
+  </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  const modules = [
+    {n:"01", name:"Executive Analytics", aud:"CEO / Hospital Director", stat:"$1.40B total billing", desc:"Rapid organizational health check: KPI cards, admission &amp; revenue trend, top conditions, hospital comparison."},
+    {n:"02", name:"Hospital Performance", aud:"Operations Manager", stat:"39,815 hospitals tracked", desc:"Benchmarks volume, billing, stay length, and emergency mix across the 7,789 hospitals with repeat admissions."},
+    {n:"03", name:"Financial Analytics", aud:"Finance / Revenue Mgmt", stat:"10% cases are high-billing", desc:"Revenue by disease, admission type, hospital, and insurance provider; billing-per-stay-day economics."},
+    {n:"04", name:"Insurance Analytics", aud:"Insurance / Revenue Cycle", stat:"5 providers, ~even split", desc:"Payer volume, billing, and admission-type mix — billed amounts only, not confirmed claim payouts."},
+    {n:"05", name:"Doctor Performance", aud:"Medical Director", stat:"40,276 doctors on record", desc:"Workload distribution restricted to the 9,384 doctors with repeat cases; avoids single-case ranking noise."},
+    {n:"06", name:"Patient Analytics", aud:"Clinical Management", stat:"6 conditions, near-equal split", desc:"Demographics, disease prevalence, medication patterns, and test-result distribution by condition."},
+    {n:"07", name:"Resource Planning", aud:"Capacity Planning", stat:"Aug / Jul / Jan peak months", desc:"Admission-volume seasonality and the long-stay cohort as capacity-demand proxies — not real bed data."},
+    {n:"08", name:"Predictive Analytics", aud:"Analytics / Clinical Support", stat:"6 models compared", desc:"Multi-class Test Results classifier — a research prototype, not a diagnostic system."},
+  ];
+  document.getElementById("module-grid").innerHTML = modules.map(m => `
+    <div class="module-card">
+      <span class="mnum">MODULE ${m.n}</span>
+      <h3>${m.name}</h3>
+      <span class="aud">${m.aud}</span>
+      <p>${m.desc}</p>
+      <span class="stat-line">${m.stat}</span>
+    </div>
+  `).join("");
+
+  const wireframes = [
+    {t:"Executive Overview", list:["KPI cards","Admission trend","Revenue trend","Test-result mix"]},
+    {t:"Hospital Performance", list:["Hospital ranking","Patient volume","Revenue","Avg length of stay"]},
+    {t:"Financial Intelligence", list:["Revenue by disease","Billing by hospital","Billing by insurance","Cost-driver view"]},
+    {t:"Insurance Intelligence", list:["Provider comparison","Patient volume","Billing","Admission mix"]},
+    {t:"Doctor Analytics", list:["Doctor workload","Patient volume","Billing","Case mix"]},
+    {t:"Patient Intelligence", list:["Demographics","Disease distribution","Medication","Test-result patterns"]},
+    {t:"Resource Planning", list:["Admission trends","Peak periods","LOS distribution","Capacity-demand proxy"]},
+    {t:"Predictive Analytics", list:["Model comparison","Confusion matrix","Feature importance","Prediction mix"]},
+    {t:"Executive Recommendations", list:["Observation","Business implication","Recommended action","Priority"]},
+  ];
+  document.getElementById("wf-grid").innerHTML = wireframes.map((w,i) => `
+    <div class="wf-card">
+      <div class="wf-head"><span class="wf-title">${w.t}</span><span class="wf-idx">DASH ${String(i+1).padStart(2,"0")}</span></div>
+      <div class="wf-body">
+        <div class="wf-kpis"><div></div><div></div><div></div><div></div></div>
+        <div class="wf-chart"></div>
+        <div class="wf-row"><div></div><div></div></div>
+      </div>
+      <ul class="wf-list">${w.list.map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>
+  `).join("");
+
+  const recos = [
+    {f:"Average billing per condition is nearly identical ($25.2K–$25.9K across all 6 conditions).", i:"Diagnosis alone can't be used to target cost containment.", r:"Investigate cost drivers beyond diagnosis code — LOS tail, room/admission-type combinations.", p:"medium"},
+    {f:"10% of admissions (5,486 cases) are High-Billing (≥$45,168), a disproportionate share of $1.40B billed.", i:"A small case tail carries outsized revenue/cost exposure.", r:"Route High-Billing Flag cases into finance's case-review queue for coding and collections audit.", p:"high"},
+    {f:"Admissions peak in August, July, and January (~3–4% above the monthly average).", i:"Real, if modest, seasonal demand pressure.", r:"Bias elective scheduling and staffing rosters away from Jul / Aug / Jan.", p:"high"},
+    {f:"10% of admissions (5,520 cases) are Long-Stay (≥28 of a 1–30 day range).", i:"Long-stay cases are the primary capacity-demand lever.", r:"Run a discharge-bottleneck review specifically for the Long-Stay cohort.", p:"high"},
+    {f:"77% of doctors and most hospitals appear only once in the data.", i:"Aggregate workload rankings outside the repeat-volume subset are meaningless.", r:"Restrict benchmarking to entities with ≥3–5 cases; label singles as non-comparable.", p:"medium"},
+    {f:"Insurance-provider billing is nearly uniform ($25.46K–$25.68K average).", i:"No provider shows a distinct cost or utilization profile here.", r:"Don't build payer strategy on this billing pattern; source real claims data if needed.", p:"low"},
+    {f:"Length of Stay and Billing Amount are statistically uncorrelated (r = -0.005).", i:"Billing isn't simply a function of stay length.", r:"Forecast billing and LOS as separate targets rather than deriving one from the other.", p:"medium"},
+    {f:"Best model (Random Forest) reaches 40.7% test accuracy vs. a 33% baseline — real but modest, led by high-cardinality numeric fields (Room Number, Billing Amount).", i:"Weak, numerically-driven signal — not strong enough to support a clinical claim.", r:"Keep as a research prototype; re-run with permutation importance and real clinical inputs before any deployment claim.", p:"medium"},
+  ];
+  document.getElementById("reco-table").innerHTML = `
+    <table>
+      <thead><tr><th style="width:30%">Finding</th><th style="width:24%">Business Impact</th><th style="width:32%">Recommendation</th><th>Priority</th></tr></thead>
+      <tbody>
+        ${recos.map(r => `<tr><td>${r.f}</td><td>${r.i}</td><td>${r.r}</td><td><span class="pill ${r.p}">${r.p}</span></td></tr>`).join("")}
+      </tbody>
+    </table>
+  `;
+
+  const links = document.querySelectorAll(".rail a");
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute("href")));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        links.forEach(l => l.classList.remove("active"));
+        const idx = sections.indexOf(e.target);
+        if(idx > -1) links[idx].classList.add("active");
+      }
+    });
+  }, {rootMargin: "-20% 0px -70% 0px"});
+  sections.forEach(s => s && io.observe(s));
+})();
+</script>

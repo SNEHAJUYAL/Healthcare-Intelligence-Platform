@@ -1,0 +1,120 @@
+{
+  "real_world_sources": {
+    "length_of_stay_days": {
+      "value": 4.8,
+      "range": [
+        4.5,
+        5.2
+      ],
+      "source": "Definitive Healthcare (2023, 4,405 US hospitals) / AHA-era HCUP estimate (2022)",
+      "url": "https://www.definitivehc.com/resources/healthcare-insights/average-length-stay-hospital"
+    },
+    "cost_per_inpatient_day_usd": {
+      "value": 3132,
+      "source": "KFF analysis of 2023 American Hospital Association Annual Survey",
+      "url": "https://www.kff.org/health-costs/state-indicator/expenses-per-inpatient-day/",
+      "note": "Hospital-reported expense per day, not a billed charge \u2014 charges are typically marked up well above cost."
+    },
+    "uninsured_rate_pct": {
+      "value": 8.0,
+      "source": "US Census Bureau, Health Insurance Coverage in the United States: 2023",
+      "url": "https://www.census.gov/library/publications/2024/demo/p60-284.html"
+    },
+    "ed_share_of_admissions_pct": {
+      "value": 70,
+      "source": "ACEP Now / NHAMCS trend analysis \u2014 share of inpatient admissions originating in the ED, up from 58% ~14 years earlier",
+      "url": "https://www.acepnow.com/article/latest-data-reveal-the-eds-role-as-hospital-admission-gatekeeper/2/"
+    },
+    "ed_visits_resulting_in_admission_pct": {
+      "value": 11.5,
+      "source": "CDC FastStats \u2014 Emergency Department Visits (17.8M of 155.4M ED visits admitted)",
+      "url": "https://www.cdc.gov/nchs/fastats/emergency-department.htm"
+    },
+    "disease_prevalence_pct": {
+      "Hypertension": {
+        "value": 47.7,
+        "source": "CDC/NCHS Data Brief No. 511 (Aug 2021-Aug 2023)",
+        "url": "https://www.cdc.gov/nchs/data/databriefs/db511.pdf"
+      },
+      "Obesity": {
+        "value": 40.3,
+        "source": "CDC/NCHS Data Brief No. 508 (Aug 2021-Aug 2023)",
+        "url": "https://www.cdc.gov/nchs/products/databriefs/db508.htm"
+      },
+      "Arthritis": {
+        "value": 22.7,
+        "source": "CDC MMWR Vital Signs (2013-2015, most recent national estimate)",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5687192/"
+      },
+      "Diabetes": {
+        "value": 15.8,
+        "source": "CDC/NCHS Data Brief No. 516 (2023 data, total diagnosed+undiagnosed)",
+        "url": "https://www.cdc.gov/nchs/data/databriefs/db516.pdf"
+      },
+      "Cancer": {
+        "value": 39.2,
+        "source": "NCI SEER (2021-2023) \u2014 LIFETIME diagnosis risk, not point-in-time prevalence",
+        "url": "https://seer.cancer.gov/statfacts/html/all.html"
+      },
+      "Asthma": {
+        "value": 7.7,
+        "source": "CDC FastStats / American Lung Association",
+        "url": "https://www.cdc.gov/nchs/fastats/asthma.htm"
+      }
+    }
+  },
+  "comparison": {
+    "length_of_stay": {
+      "platform_days": 15.5,
+      "real_world_days": 4.8,
+      "real_world_range": [
+        4.5,
+        5.2
+      ],
+      "ratio": 3.23,
+      "interpretation": "Platform average length of stay is ~3x the real-world US average. The dataset draws Length of Stay from what looks like a uniform 1-30 day distribution rather than the right-skewed, mostly-short-stay distribution real hospitals show."
+    },
+    "cost_per_stay_day": {
+      "platform_usd": 3399.13,
+      "real_world_usd": 3132,
+      "ratio": 1.09,
+      "interpretation": "Platform billing-per-stay-day ($3,399) sits within 9% of the real US average hospital EXPENSE per day ($3,132) -- but the platform field is a billed charge, and charges typically run several multiples above a hospital's own reported cost in real revenue-cycle data. If 'Billing Amount' is meant to represent charges rather than cost, the realistic figure would be considerably higher than $3,132/day, not roughly equal to it."
+    },
+    "admission_channel_mix": {
+      "platform_emergency_pct": 32.94,
+      "real_world_ed_share_of_admissions_pct": 70,
+      "interpretation": "Real US hospitals now admit roughly 70% of inpatients through the ED. The platform's Admission Type is split almost exactly evenly across Elective/Urgent/Emergency (~33% each) -- a signature of uniform-random category assignment, not a modeled admission pathway."
+    },
+    "insurance_market_structure": {
+      "platform_mix_pct": {
+        "Cigna": 20.26,
+        "Medicare": 20.08,
+        "Unitedhealthcare": 20.04,
+        "Blue Cross": 19.94,
+        "Aetna": 19.68
+      },
+      "platform_spread_pct_points": 0.58,
+      "real_world_note": "Employer-sponsored insurance alone covers ~154M nonelderly Americans (KFF), Medicare Advantage covers ~33M of ~65M Medicare beneficiaries (KFF), and 8.0% of the population is uninsured (US Census, 2023) -- a highly uneven market structure.",
+      "interpretation": "The platform's 5 payers split admissions within a 0.58-point band of each other (~20% each) -- consistent with uniform-random assignment, not a modeled insurance market where employer plans and Medicare dominate unevenly and ~8% of the population carries no coverage at all."
+    },
+    "disease_admission_mix_vs_population_prevalence": {
+      "note": "NOT a like-for-like comparison -- the platform figure is each condition's share of admissions among 6 preselected conditions; the real-world figure is population-wide point (or lifetime, for cancer) prevalence. Shown side by side only to illustrate that real prevalence varies more than 6x across conditions (7.7% asthma to 47.7% hypertension) while the platform's 6 conditions are engineered to near-perfect equality (16.5%-16.8% each).",
+      "platform_admission_mix_pct": {
+        "Arthritis": 16.78,
+        "Diabetes": 16.76,
+        "Hypertension": 16.64,
+        "Obesity": 16.64,
+        "Cancer": 16.63,
+        "Asthma": 16.55
+      },
+      "real_world_prevalence_pct": {
+        "Hypertension": 47.7,
+        "Obesity": 40.3,
+        "Arthritis": 22.7,
+        "Diabetes": 15.8,
+        "Cancer": 39.2,
+        "Asthma": 7.7
+      }
+    }
+  }
+}

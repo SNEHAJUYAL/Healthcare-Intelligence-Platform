@@ -1,0 +1,411 @@
+{
+  "column_profile": {
+    "Name": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 40167,
+      "cardinality_ratio": 0.7322,
+      "pct_appearing_once": 76.67,
+      "verdict": "IDENTIFIER \u2014 excluded from ML feature sets"
+    },
+    "Age": {
+      "dtype": "int64",
+      "missing": 0,
+      "unique": 77,
+      "cardinality_ratio": 0.0014,
+      "min": 13.0,
+      "p10": 24.0,
+      "p25": 35.0,
+      "median": 52.0,
+      "mean": 51.53,
+      "p75": 68.0,
+      "p90": 79.0,
+      "max": 89.0,
+      "std": 19.61,
+      "skewness": -0.0058,
+      "kurtosis": -1.1861,
+      "shape_verdict": "Approximately UNIFORM (excess kurtosis near -1.2, low skew)"
+    },
+    "Gender": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 2,
+      "cardinality_ratio": 0.0,
+      "top_5": {
+        "Male": 27449,
+        "Female": 27411
+      },
+      "top_value_share_pct": 50.03
+    },
+    "Blood Type": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 8,
+      "cardinality_ratio": 0.0001,
+      "top_5": {
+        "A-": 6882,
+        "A+": 6879,
+        "B+": 6876,
+        "AB+": 6872,
+        "B-": 6861
+      },
+      "top_value_share_pct": 12.54
+    },
+    "Medical Condition": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 6,
+      "cardinality_ratio": 0.0001,
+      "top_5": {
+        "Arthritis": 9207,
+        "Diabetes": 9197,
+        "Hypertension": 9131,
+        "Obesity": 9127,
+        "Cancer": 9121
+      },
+      "top_value_share_pct": 16.78
+    },
+    "Date of Admission": {
+      "dtype": "datetime64[ns]",
+      "missing": 0,
+      "unique": 1827,
+      "cardinality_ratio": 0.0333,
+      "top_5": {
+        "2024-03-16 00:00:00": 50,
+        "2020-10-22 00:00:00": 49,
+        "2021-12-28 00:00:00": 48,
+        "2020-06-07 00:00:00": 47,
+        "2023-08-10 00:00:00": 47
+      },
+      "top_value_share_pct": 0.09
+    },
+    "Doctor": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 40276,
+      "cardinality_ratio": 0.7342,
+      "pct_appearing_once": 76.7,
+      "verdict": "IDENTIFIER \u2014 excluded from ML feature sets"
+    },
+    "Hospital": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 39815,
+      "cardinality_ratio": 0.7258,
+      "pct_appearing_once": 80.44,
+      "verdict": "IDENTIFIER \u2014 excluded from ML feature sets"
+    },
+    "Insurance Provider": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 5,
+      "cardinality_ratio": 0.0001,
+      "top_5": {
+        "Cigna": 11115,
+        "Medicare": 11018,
+        "Unitedhealthcare": 10995,
+        "Blue Cross": 10937,
+        "Aetna": 10795
+      },
+      "top_value_share_pct": 20.26
+    },
+    "Billing Amount": {
+      "dtype": "float64",
+      "missing": 0,
+      "unique": 49904,
+      "cardinality_ratio": 0.9097,
+      "min": 9.238787497393332,
+      "p10": 5961.5276671416295,
+      "p25": 13299.747939754347,
+      "median": 25593.872999505955,
+      "mean": 25594.63,
+      "p75": 37847.06667062174,
+      "p90": 45167.69060104457,
+      "max": 52764.276736469175,
+      "std": 14175.87,
+      "skewness": 0.0,
+      "kurtosis": -1.1922,
+      "shape_verdict": "Approximately UNIFORM (excess kurtosis near -1.2, low skew)"
+    },
+    "Room Number": {
+      "dtype": "int64",
+      "missing": 0,
+      "unique": 400,
+      "cardinality_ratio": 0.0073,
+      "min": 101.0,
+      "p10": 141.0,
+      "p25": 202.0,
+      "median": 302.0,
+      "mean": 301.11,
+      "p75": 400.0,
+      "p90": 460.0,
+      "max": 500.0,
+      "std": 115.22,
+      "skewness": -0.0109,
+      "kurtosis": -1.1932,
+      "shape_verdict": "Approximately UNIFORM (excess kurtosis near -1.2, low skew)"
+    },
+    "Admission Type": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 3,
+      "cardinality_ratio": 0.0001,
+      "top_5": {
+        "Elective": 18437,
+        "Urgent": 18353,
+        "Emergency": 18070
+      },
+      "top_value_share_pct": 33.61
+    },
+    "Discharge Date": {
+      "dtype": "datetime64[ns]",
+      "missing": 0,
+      "unique": 1856,
+      "cardinality_ratio": 0.0338,
+      "top_5": {
+        "2020-03-15 00:00:00": 53,
+        "2021-12-13 00:00:00": 51,
+        "2023-04-29 00:00:00": 51,
+        "2020-12-02 00:00:00": 50,
+        "2020-08-11 00:00:00": 50
+      },
+      "top_value_share_pct": 0.1
+    },
+    "Medication": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 5,
+      "cardinality_ratio": 0.0001,
+      "top_5": {
+        "Lipitor": 11018,
+        "Ibuprofen": 11002,
+        "Aspirin": 10963,
+        "Paracetamol": 10945,
+        "Penicillin": 10932
+      },
+      "top_value_share_pct": 20.08
+    },
+    "Test Results": {
+      "dtype": "object",
+      "missing": 0,
+      "unique": 3,
+      "cardinality_ratio": 0.0001,
+      "top_5": {
+        "Abnormal": 18399,
+        "Normal": 18302,
+        "Inconclusive": 18159
+      },
+      "top_value_share_pct": 33.54
+    },
+    "Length of Stay": {
+      "dtype": "int64",
+      "missing": 0,
+      "unique": 30,
+      "cardinality_ratio": 0.0005,
+      "min": 1.0,
+      "p10": 4.0,
+      "p25": 8.0,
+      "median": 15.0,
+      "mean": 15.5,
+      "p75": 23.0,
+      "p90": 28.0,
+      "max": 30.0,
+      "std": 8.66,
+      "skewness": 0.0028,
+      "kurtosis": -1.2055,
+      "shape_verdict": "Approximately UNIFORM (excess kurtosis near -1.2, low skew)"
+    }
+  },
+  "uniformity_tests": {
+    "Gender": {
+      "n_categories": 2,
+      "chi2": 0.026,
+      "p_value": 0.871118,
+      "max_deviation_from_uniform_pct": 0.07,
+      "verdict": "Statistically indistinguishable from uniform (p > 0.05) -- consistent with random category assignment"
+    },
+    "Blood Type": {
+      "n_categories": 8,
+      "chi2": 0.973,
+      "p_value": 0.995258,
+      "max_deviation_from_uniform_pct": 0.36,
+      "verdict": "Statistically indistinguishable from uniform (p > 0.05) -- consistent with random category assignment"
+    },
+    "Medical Condition": {
+      "n_categories": 6,
+      "chi2": 1.34,
+      "p_value": 0.930771,
+      "max_deviation_from_uniform_pct": 0.7,
+      "verdict": "Statistically indistinguishable from uniform (p > 0.05) -- consistent with random category assignment"
+    },
+    "Admission Type": {
+      "n_categories": 3,
+      "chi2": 4.044,
+      "p_value": 0.132414,
+      "max_deviation_from_uniform_pct": 0.82,
+      "verdict": "Statistically indistinguishable from uniform (p > 0.05) -- consistent with random category assignment"
+    },
+    "Insurance Provider": {
+      "n_categories": 5,
+      "chi2": 5.072,
+      "p_value": 0.280007,
+      "max_deviation_from_uniform_pct": 1.3,
+      "verdict": "Statistically indistinguishable from uniform (p > 0.05) -- consistent with random category assignment"
+    },
+    "Medication": {
+      "n_categories": 5,
+      "chi2": 0.495,
+      "p_value": 0.974031,
+      "max_deviation_from_uniform_pct": 0.42,
+      "verdict": "Statistically indistinguishable from uniform (p > 0.05) -- consistent with random category assignment"
+    },
+    "Test Results": {
+      "n_categories": 3,
+      "chi2": 1.594,
+      "p_value": 0.450633,
+      "max_deviation_from_uniform_pct": 0.61,
+      "verdict": "Statistically indistinguishable from uniform (p > 0.05) -- consistent with random category assignment"
+    }
+  },
+  "correlation": {
+    "numeric_pearson": {
+      "Age": {
+        "Age": 1.0,
+        "Billing Amount": -0.0033,
+        "Room Number": -0.0003,
+        "Length of Stay": 0.008
+      },
+      "Billing Amount": {
+        "Age": -0.0033,
+        "Billing Amount": 1.0,
+        "Room Number": -0.0037,
+        "Length of Stay": -0.0048
+      },
+      "Room Number": {
+        "Age": -0.0003,
+        "Billing Amount": -0.0037,
+        "Room Number": 1.0,
+        "Length of Stay": -0.0046
+      },
+      "Length of Stay": {
+        "Age": 0.008,
+        "Billing Amount": -0.0048,
+        "Room Number": -0.0046,
+        "Length of Stay": 1.0
+      }
+    },
+    "numeric_spearman": {
+      "Age": {
+        "Age": 1.0,
+        "Billing Amount": -0.0031,
+        "Room Number": -0.0003,
+        "Length of Stay": 0.008
+      },
+      "Billing Amount": {
+        "Age": -0.0031,
+        "Billing Amount": 1.0,
+        "Room Number": -0.0037,
+        "Length of Stay": -0.0048
+      },
+      "Room Number": {
+        "Age": -0.0003,
+        "Billing Amount": -0.0037,
+        "Room Number": 1.0,
+        "Length of Stay": -0.0045
+      },
+      "Length of Stay": {
+        "Age": 0.008,
+        "Billing Amount": -0.0048,
+        "Room Number": -0.0045,
+        "Length of Stay": 1.0
+      }
+    },
+    "categorical_cramers_v": {
+      "Gender": {
+        "Gender": 1.0,
+        "Blood Type": 0.0161,
+        "Medical Condition": 0.0046,
+        "Admission Type": 0.0134,
+        "Insurance Provider": 0.0078,
+        "Medication": 0.0105
+      },
+      "Blood Type": {
+        "Gender": 0.0161,
+        "Blood Type": 1.0,
+        "Medical Condition": 0.0114,
+        "Admission Type": 0.0117,
+        "Insurance Provider": 0.0123,
+        "Medication": 0.0113
+      },
+      "Medical Condition": {
+        "Gender": 0.0046,
+        "Blood Type": 0.0114,
+        "Medical Condition": 1.0,
+        "Admission Type": 0.0125,
+        "Insurance Provider": 0.0083,
+        "Medication": 0.0098
+      },
+      "Admission Type": {
+        "Gender": 0.0134,
+        "Blood Type": 0.0117,
+        "Medical Condition": 0.0125,
+        "Admission Type": 1.0,
+        "Insurance Provider": 0.0127,
+        "Medication": 0.0073
+      },
+      "Insurance Provider": {
+        "Gender": 0.0078,
+        "Blood Type": 0.0123,
+        "Medical Condition": 0.0083,
+        "Admission Type": 0.0127,
+        "Insurance Provider": 1.0,
+        "Medication": 0.0069
+      },
+      "Medication": {
+        "Gender": 0.0105,
+        "Blood Type": 0.0113,
+        "Medical Condition": 0.0098,
+        "Admission Type": 0.0073,
+        "Insurance Provider": 0.0069,
+        "Medication": 1.0
+      }
+    },
+    "strongest_numeric_pair": [
+      "Age",
+      "Length of Stay"
+    ],
+    "strongest_categorical_pair": [
+      "Gender",
+      "Blood Type"
+    ]
+  },
+  "outlier_comparison": {
+    "Billing Amount": {
+      "iqr_method_count": 0,
+      "zscore_method_count": 0,
+      "isolation_forest_flagged_in_multivariate_set": 1098,
+      "iqr_and_zscore_agree_count": 0
+    },
+    "Age": {
+      "iqr_method_count": 0,
+      "zscore_method_count": 0,
+      "isolation_forest_flagged_in_multivariate_set": null,
+      "iqr_and_zscore_agree_count": 0
+    },
+    "Length of Stay": {
+      "iqr_method_count": 0,
+      "zscore_method_count": 0,
+      "isolation_forest_flagged_in_multivariate_set": null,
+      "iqr_and_zscore_agree_count": 0
+    },
+    "_note": "IQR and Z-score flag ZERO outliers on all three columns -- a direct consequence of each being approximately uniform over a bounded range (Section 1), which has no long tail for either rule to catch. Isolation Forest is fit once, jointly, across all three columns (multivariate) with contamination=0.02, which by construction flags the 1098 MOST-isolated rows (1098/54860 = 2.00%, matching the requested 2% quantile almost exactly) -- this is a forced quantile cut, not a discovered anomaly count, and should not be read as '1,098 real anomalies exist'. Together, all three methods agree: there is no genuine outlier population in this dataset, consistent with this project's earlier decision not to blindly trim extreme values."
+  },
+  "duplicate_deep_dive": {
+    "exact_duplicate_rows_removed_in_cleaning": 534,
+    "identities_name_age_gender_bloodtype_appearing_more_than_once": 22,
+    "of_those_all_other_fields_also_identical_near_duplicate": 0,
+    "of_those_other_fields_differ_genuine_repeat_admission": 22,
+    "interpretation": "22 (Name, Age, Gender, Blood Type) combinations appear more than once. 22 of those have differing admission details (condition, dates, billing, etc.) -- these read as the SAME synthetic identity reused across independent, distinct admission records (expected in a randomly generated dataset with a finite name pool), not as duplicate data entry. Only 0 groups have fully identical other fields as well, and those would already have been caught by the exact-duplicate-row removal in Stage 2 cleaning."
+  },
+  "dataset_type_context": "This is admission-level, tabular, cross-sectional SYNTHETIC data -- structurally similar to a simplified hospital Admission-Discharge-Transfer (ADT) feed or a claims summary extract, but without the longitudinal patient history a real Electronic Health Record (EHR) system carries, the clinical granularity of a disease registry (e.g. a cancer or diabetes registry with lab values and staging), or the survey-sampling design of population data like NHANES. The uniformity tests above are the tell: real EHR/claims/registry data is never this evenly distributed across categories -- see reports/04_reality_check.md and 05_external_data_sources.md for the real-world comparison. Studying this dataset is useful for learning the MECHANICS of healthcare analytics (cleaning, feature engineering, star schemas, leakage-safe ML) but not for learning what real clinical data distributions look like -- that requires the real, skewed statistics cited elsewhere in this project."
+}

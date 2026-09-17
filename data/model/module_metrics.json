@@ -1,0 +1,1785 @@
+{
+  "executive": {
+    "kpis": {
+      "total_patients": 54860,
+      "total_billing": 1404121601.31,
+      "avg_billing": 25594.63,
+      "avg_length_of_stay": 15.5,
+      "emergency_admission_pct": 32.94,
+      "abnormal_test_pct": 33.54,
+      "n_hospitals": 39815,
+      "n_doctors": 40276
+    },
+    "admission_trend": [
+      {
+        "period": "2019-05",
+        "count": 672
+      },
+      {
+        "period": "2019-06",
+        "count": 897
+      },
+      {
+        "period": "2019-07",
+        "count": 950
+      },
+      {
+        "period": "2019-08",
+        "count": 982
+      },
+      {
+        "period": "2019-09",
+        "count": 924
+      },
+      {
+        "period": "2019-10",
+        "count": 990
+      },
+      {
+        "period": "2019-11",
+        "count": 947
+      },
+      {
+        "period": "2019-12",
+        "count": 918
+      },
+      {
+        "period": "2020-01",
+        "count": 939
+      },
+      {
+        "period": "2020-02",
+        "count": 868
+      },
+      {
+        "period": "2020-03",
+        "count": 922
+      },
+      {
+        "period": "2020-04",
+        "count": 907
+      },
+      {
+        "period": "2020-05",
+        "count": 968
+      },
+      {
+        "period": "2020-06",
+        "count": 923
+      },
+      {
+        "period": "2020-07",
+        "count": 1000
+      },
+      {
+        "period": "2020-08",
+        "count": 1002
+      },
+      {
+        "period": "2020-09",
+        "count": 898
+      },
+      {
+        "period": "2020-10",
+        "count": 948
+      },
+      {
+        "period": "2020-11",
+        "count": 899
+      },
+      {
+        "period": "2020-12",
+        "count": 883
+      },
+      {
+        "period": "2021-01",
+        "count": 921
+      },
+      {
+        "period": "2021-02",
+        "count": 825
+      },
+      {
+        "period": "2021-03",
+        "count": 949
+      },
+      {
+        "period": "2021-04",
+        "count": 859
+      },
+      {
+        "period": "2021-05",
+        "count": 893
+      },
+      {
+        "period": "2021-06",
+        "count": 914
+      },
+      {
+        "period": "2021-07",
+        "count": 965
+      },
+      {
+        "period": "2021-08",
+        "count": 886
+      },
+      {
+        "period": "2021-09",
+        "count": 858
+      },
+      {
+        "period": "2021-10",
+        "count": 884
+      },
+      {
+        "period": "2021-11",
+        "count": 899
+      },
+      {
+        "period": "2021-12",
+        "count": 942
+      },
+      {
+        "period": "2022-01",
+        "count": 959
+      },
+      {
+        "period": "2022-02",
+        "count": 770
+      },
+      {
+        "period": "2022-03",
+        "count": 929
+      },
+      {
+        "period": "2022-04",
+        "count": 869
+      },
+      {
+        "period": "2022-05",
+        "count": 884
+      },
+      {
+        "period": "2022-06",
+        "count": 956
+      },
+      {
+        "period": "2022-07",
+        "count": 934
+      },
+      {
+        "period": "2022-08",
+        "count": 946
+      },
+      {
+        "period": "2022-09",
+        "count": 910
+      },
+      {
+        "period": "2022-10",
+        "count": 900
+      },
+      {
+        "period": "2022-11",
+        "count": 884
+      },
+      {
+        "period": "2022-12",
+        "count": 950
+      },
+      {
+        "period": "2023-01",
+        "count": 924
+      },
+      {
+        "period": "2023-02",
+        "count": 871
+      },
+      {
+        "period": "2023-03",
+        "count": 910
+      },
+      {
+        "period": "2023-04",
+        "count": 892
+      },
+      {
+        "period": "2023-05",
+        "count": 918
+      },
+      {
+        "period": "2023-06",
+        "count": 950
+      },
+      {
+        "period": "2023-07",
+        "count": 913
+      },
+      {
+        "period": "2023-08",
+        "count": 961
+      },
+      {
+        "period": "2023-09",
+        "count": 913
+      },
+      {
+        "period": "2023-10",
+        "count": 883
+      },
+      {
+        "period": "2023-11",
+        "count": 872
+      },
+      {
+        "period": "2023-12",
+        "count": 911
+      },
+      {
+        "period": "2024-01",
+        "count": 903
+      },
+      {
+        "period": "2024-02",
+        "count": 865
+      },
+      {
+        "period": "2024-03",
+        "count": 900
+      },
+      {
+        "period": "2024-04",
+        "count": 939
+      },
+      {
+        "period": "2024-05",
+        "count": 212
+      }
+    ],
+    "revenue_trend": [
+      {
+        "period": "2019-05",
+        "revenue": 17404851.88513743
+      },
+      {
+        "period": "2019-06",
+        "revenue": 23614191.04125051
+      },
+      {
+        "period": "2019-07",
+        "revenue": 24632556.54897812
+      },
+      {
+        "period": "2019-08",
+        "revenue": 24998612.772553492
+      },
+      {
+        "period": "2019-09",
+        "revenue": 23021967.21007384
+      },
+      {
+        "period": "2019-10",
+        "revenue": 25736375.16383481
+      },
+      {
+        "period": "2019-11",
+        "revenue": 24529227.485747084
+      },
+      {
+        "period": "2019-12",
+        "revenue": 23580622.407818906
+      },
+      {
+        "period": "2020-01",
+        "revenue": 24284294.47203302
+      },
+      {
+        "period": "2020-02",
+        "revenue": 21996303.67168491
+      },
+      {
+        "period": "2020-03",
+        "revenue": 23545718.133166227
+      },
+      {
+        "period": "2020-04",
+        "revenue": 22878256.648301665
+      },
+      {
+        "period": "2020-05",
+        "revenue": 24781408.536809776
+      },
+      {
+        "period": "2020-06",
+        "revenue": 24050073.96192107
+      },
+      {
+        "period": "2020-07",
+        "revenue": 24812785.32418176
+      },
+      {
+        "period": "2020-08",
+        "revenue": 25579030.8423342
+      },
+      {
+        "period": "2020-09",
+        "revenue": 22344214.39689089
+      },
+      {
+        "period": "2020-10",
+        "revenue": 23745756.208006322
+      },
+      {
+        "period": "2020-11",
+        "revenue": 22788488.886503275
+      },
+      {
+        "period": "2020-12",
+        "revenue": 23153282.453694627
+      },
+      {
+        "period": "2021-01",
+        "revenue": 23528671.379357632
+      },
+      {
+        "period": "2021-02",
+        "revenue": 21146741.494628035
+      },
+      {
+        "period": "2021-03",
+        "revenue": 24747976.838106766
+      },
+      {
+        "period": "2021-04",
+        "revenue": 22141567.584637184
+      },
+      {
+        "period": "2021-05",
+        "revenue": 22359728.416895635
+      },
+      {
+        "period": "2021-06",
+        "revenue": 23859289.746413384
+      },
+      {
+        "period": "2021-07",
+        "revenue": 24840714.31398829
+      },
+      {
+        "period": "2021-08",
+        "revenue": 22630013.82988662
+      },
+      {
+        "period": "2021-09",
+        "revenue": 21615416.89036839
+      },
+      {
+        "period": "2021-10",
+        "revenue": 23694544.584002763
+      },
+      {
+        "period": "2021-11",
+        "revenue": 23076691.993931007
+      },
+      {
+        "period": "2021-12",
+        "revenue": 23545220.802789323
+      },
+      {
+        "period": "2022-01",
+        "revenue": 24514823.35744954
+      },
+      {
+        "period": "2022-02",
+        "revenue": 19116118.720801327
+      },
+      {
+        "period": "2022-03",
+        "revenue": 24017744.945971277
+      },
+      {
+        "period": "2022-04",
+        "revenue": 22336899.137243923
+      },
+      {
+        "period": "2022-05",
+        "revenue": 22627046.501165513
+      },
+      {
+        "period": "2022-06",
+        "revenue": 24170073.247270826
+      },
+      {
+        "period": "2022-07",
+        "revenue": 24172729.03076876
+      },
+      {
+        "period": "2022-08",
+        "revenue": 23758453.216501098
+      },
+      {
+        "period": "2022-09",
+        "revenue": 23401530.551065452
+      },
+      {
+        "period": "2022-10",
+        "revenue": 23222314.591287877
+      },
+      {
+        "period": "2022-11",
+        "revenue": 23298949.07783165
+      },
+      {
+        "period": "2022-12",
+        "revenue": 23988902.238412987
+      },
+      {
+        "period": "2023-01",
+        "revenue": 24066197.09578874
+      },
+      {
+        "period": "2023-02",
+        "revenue": 22216530.114885416
+      },
+      {
+        "period": "2023-03",
+        "revenue": 22271257.38014876
+      },
+      {
+        "period": "2023-04",
+        "revenue": 22846414.13900579
+      },
+      {
+        "period": "2023-05",
+        "revenue": 22734281.72631288
+      },
+      {
+        "period": "2023-06",
+        "revenue": 24795001.561728694
+      },
+      {
+        "period": "2023-07",
+        "revenue": 22969552.110566422
+      },
+      {
+        "period": "2023-08",
+        "revenue": 24617319.177552283
+      },
+      {
+        "period": "2023-09",
+        "revenue": 23465274.241728533
+      },
+      {
+        "period": "2023-10",
+        "revenue": 23627441.818657346
+      },
+      {
+        "period": "2023-11",
+        "revenue": 22290858.370774057
+      },
+      {
+        "period": "2023-12",
+        "revenue": 23780825.971558604
+      },
+      {
+        "period": "2024-01",
+        "revenue": 23330536.26875254
+      },
+      {
+        "period": "2024-02",
+        "revenue": 22234241.116155475
+      },
+      {
+        "period": "2024-03",
+        "revenue": 22779057.617248572
+      },
+      {
+        "period": "2024-04",
+        "revenue": 23408072.641976204
+      },
+      {
+        "period": "2024-05",
+        "revenue": 5398559.417596182
+      }
+    ],
+    "top_conditions": [
+      {
+        "label": "Arthritis",
+        "value": 9207
+      },
+      {
+        "label": "Diabetes",
+        "value": 9197
+      },
+      {
+        "label": "Hypertension",
+        "value": 9131
+      },
+      {
+        "label": "Obesity",
+        "value": 9127
+      },
+      {
+        "label": "Cancer",
+        "value": 9121
+      },
+      {
+        "label": "Asthma",
+        "value": 9077
+      }
+    ],
+    "billing_distribution": [
+      {
+        "label": "High",
+        "value": 18653
+      },
+      {
+        "label": "Low",
+        "value": 18104
+      },
+      {
+        "label": "Medium",
+        "value": 18103
+      }
+    ],
+    "test_result_distribution": [
+      {
+        "label": "Abnormal",
+        "value": 18399
+      },
+      {
+        "label": "Normal",
+        "value": 18302
+      },
+      {
+        "label": "Inconclusive",
+        "value": 18159
+      }
+    ],
+    "admission_type_mix": [
+      {
+        "label": "Elective",
+        "value": 18437
+      },
+      {
+        "label": "Urgent",
+        "value": 18353
+      },
+      {
+        "label": "Emergency",
+        "value": 18070
+      }
+    ]
+  },
+  "hospital_performance": {
+    "note": "39,815 distinct hospital names exist across 54,860 admissions (7,789 hospitals have more than one admission on record). Ranking below is restricted to hospitals with repeat volume so averages are meaningful.",
+    "top_by_volume": [
+      {
+        "Hospital": "Llc Smith",
+        "patient_volume": 44,
+        "total_billing": 1030189.87,
+        "avg_billing": 23413.41,
+        "avg_los": 15.57,
+        "emergency_pct": 43.18,
+        "abnormal_pct": 38.64
+      },
+      {
+        "Hospital": "Ltd Smith",
+        "patient_volume": 39,
+        "total_billing": 1003365.53,
+        "avg_billing": 25727.32,
+        "avg_los": 16.51,
+        "emergency_pct": 28.21,
+        "abnormal_pct": 43.59
+      },
+      {
+        "Hospital": "Johnson Plc",
+        "patient_volume": 37,
+        "total_billing": 1081477.31,
+        "avg_billing": 29229.12,
+        "avg_los": 16.14,
+        "emergency_pct": 32.43,
+        "abnormal_pct": 18.92
+      },
+      {
+        "Hospital": "Smith Ltd",
+        "patient_volume": 37,
+        "total_billing": 970035.87,
+        "avg_billing": 26217.19,
+        "avg_los": 15.14,
+        "emergency_pct": 37.84,
+        "abnormal_pct": 21.62
+      },
+      {
+        "Hospital": "Smith Plc",
+        "patient_volume": 36,
+        "total_billing": 1029424.45,
+        "avg_billing": 28595.12,
+        "avg_los": 17.64,
+        "emergency_pct": 33.33,
+        "abnormal_pct": 44.44
+      },
+      {
+        "Hospital": "Smith Group",
+        "patient_volume": 34,
+        "total_billing": 806767.93,
+        "avg_billing": 23728.47,
+        "avg_los": 17.0,
+        "emergency_pct": 23.53,
+        "abnormal_pct": 52.94
+      },
+      {
+        "Hospital": "Smith Inc",
+        "patient_volume": 33,
+        "total_billing": 772256.5,
+        "avg_billing": 23401.71,
+        "avg_los": 15.39,
+        "emergency_pct": 24.24,
+        "abnormal_pct": 9.09
+      },
+      {
+        "Hospital": "Group Smith",
+        "patient_volume": 32,
+        "total_billing": 902975.79,
+        "avg_billing": 28217.99,
+        "avg_los": 16.31,
+        "emergency_pct": 34.38,
+        "abnormal_pct": 9.38
+      },
+      {
+        "Hospital": "Johnson Inc",
+        "patient_volume": 32,
+        "total_billing": 936931.27,
+        "avg_billing": 29279.1,
+        "avg_los": 14.81,
+        "emergency_pct": 31.25,
+        "abnormal_pct": 37.5
+      },
+      {
+        "Hospital": "Smith Llc",
+        "patient_volume": 32,
+        "total_billing": 731683.65,
+        "avg_billing": 22865.11,
+        "avg_los": 16.09,
+        "emergency_pct": 28.12,
+        "abnormal_pct": 46.88
+      }
+    ],
+    "top_by_billing": [
+      {
+        "Hospital": "Johnson Plc",
+        "patient_volume": 37,
+        "total_billing": 1081477.31,
+        "avg_billing": 29229.12,
+        "avg_los": 16.14,
+        "emergency_pct": 32.43,
+        "abnormal_pct": 18.92
+      },
+      {
+        "Hospital": "Llc Smith",
+        "patient_volume": 44,
+        "total_billing": 1030189.87,
+        "avg_billing": 23413.41,
+        "avg_los": 15.57,
+        "emergency_pct": 43.18,
+        "abnormal_pct": 38.64
+      },
+      {
+        "Hospital": "Smith Plc",
+        "patient_volume": 36,
+        "total_billing": 1029424.45,
+        "avg_billing": 28595.12,
+        "avg_los": 17.64,
+        "emergency_pct": 33.33,
+        "abnormal_pct": 44.44
+      },
+      {
+        "Hospital": "Ltd Smith",
+        "patient_volume": 39,
+        "total_billing": 1003365.53,
+        "avg_billing": 25727.32,
+        "avg_los": 16.51,
+        "emergency_pct": 28.21,
+        "abnormal_pct": 43.59
+      },
+      {
+        "Hospital": "Smith Ltd",
+        "patient_volume": 37,
+        "total_billing": 970035.87,
+        "avg_billing": 26217.19,
+        "avg_los": 15.14,
+        "emergency_pct": 37.84,
+        "abnormal_pct": 21.62
+      },
+      {
+        "Hospital": "Johnson Inc",
+        "patient_volume": 32,
+        "total_billing": 936931.27,
+        "avg_billing": 29279.1,
+        "avg_los": 14.81,
+        "emergency_pct": 31.25,
+        "abnormal_pct": 37.5
+      },
+      {
+        "Hospital": "Group Smith",
+        "patient_volume": 32,
+        "total_billing": 902975.79,
+        "avg_billing": 28217.99,
+        "avg_los": 16.31,
+        "emergency_pct": 34.38,
+        "abnormal_pct": 9.38
+      },
+      {
+        "Hospital": "Inc Brown",
+        "patient_volume": 27,
+        "total_billing": 877961.31,
+        "avg_billing": 32517.09,
+        "avg_los": 13.56,
+        "emergency_pct": 37.04,
+        "abnormal_pct": 40.74
+      },
+      {
+        "Hospital": "Llc Johnson",
+        "patient_volume": 30,
+        "total_billing": 816438.35,
+        "avg_billing": 27214.61,
+        "avg_los": 17.03,
+        "emergency_pct": 30.0,
+        "abnormal_pct": 23.33
+      },
+      {
+        "Hospital": "Smith Group",
+        "patient_volume": 34,
+        "total_billing": 806767.93,
+        "avg_billing": 23728.47,
+        "avg_los": 17.0,
+        "emergency_pct": 23.53,
+        "abnormal_pct": 52.94
+      }
+    ],
+    "top_by_los": [
+      {
+        "Hospital": "Adkins Wade Simmons, And",
+        "patient_volume": 2,
+        "total_billing": 84142.09,
+        "avg_billing": 42071.04,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 100.0
+      },
+      {
+        "Hospital": "Aguilar-Pearson",
+        "patient_volume": 2,
+        "total_billing": 88375.31,
+        "avg_billing": 44187.65,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "Alvarez Moss Smith, And",
+        "patient_volume": 2,
+        "total_billing": 70526.82,
+        "avg_billing": 35263.41,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "And Coleman, Perry Owen",
+        "patient_volume": 2,
+        "total_billing": 12666.24,
+        "avg_billing": 6333.12,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "And Ford, Juarez Campbell",
+        "patient_volume": 2,
+        "total_billing": 88144.92,
+        "avg_billing": 44072.46,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 100.0
+      },
+      {
+        "Hospital": "And Gray Williams Wilkinson,",
+        "patient_volume": 2,
+        "total_billing": 2446.12,
+        "avg_billing": 1223.06,
+        "avg_los": 30.0,
+        "emergency_pct": 100.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "And Griffin Lindsey Page,",
+        "patient_volume": 2,
+        "total_billing": 49936.53,
+        "avg_billing": 24968.26,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "And Holland Watkins Copeland,",
+        "patient_volume": 2,
+        "total_billing": 96365.44,
+        "avg_billing": 48182.72,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "And Long, Green Carroll",
+        "patient_volume": 2,
+        "total_billing": 65675.0,
+        "avg_billing": 32837.5,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "And Marquez Silva Smith,",
+        "patient_volume": 2,
+        "total_billing": 97991.96,
+        "avg_billing": 48995.98,
+        "avg_los": 30.0,
+        "emergency_pct": 0.0,
+        "abnormal_pct": 0.0
+      }
+    ],
+    "top_by_emergency_pct": [
+      {
+        "Hospital": "And Sons Thomas",
+        "patient_volume": 5,
+        "total_billing": 169152.17,
+        "avg_billing": 33830.43,
+        "avg_los": 13.6,
+        "emergency_pct": 100.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "Ltd Adams",
+        "patient_volume": 7,
+        "total_billing": 109704.35,
+        "avg_billing": 15672.05,
+        "avg_los": 22.29,
+        "emergency_pct": 100.0,
+        "abnormal_pct": 0.0
+      },
+      {
+        "Hospital": "Owens Plc",
+        "patient_volume": 5,
+        "total_billing": 91223.04,
+        "avg_billing": 18244.61,
+        "avg_los": 10.0,
+        "emergency_pct": 100.0,
+        "abnormal_pct": 60.0
+      },
+      {
+        "Hospital": "Sherman Inc",
+        "patient_volume": 5,
+        "total_billing": 105121.96,
+        "avg_billing": 21024.39,
+        "avg_los": 24.6,
+        "emergency_pct": 100.0,
+        "abnormal_pct": 20.0
+      },
+      {
+        "Hospital": "Sanchez Inc",
+        "patient_volume": 8,
+        "total_billing": 228994.43,
+        "avg_billing": 28624.3,
+        "avg_los": 12.12,
+        "emergency_pct": 87.5,
+        "abnormal_pct": 37.5
+      },
+      {
+        "Hospital": "Green Llc",
+        "patient_volume": 7,
+        "total_billing": 153203.56,
+        "avg_billing": 21886.22,
+        "avg_los": 12.43,
+        "emergency_pct": 85.71,
+        "abnormal_pct": 42.86
+      },
+      {
+        "Hospital": "Group Reed",
+        "patient_volume": 7,
+        "total_billing": 174936.8,
+        "avg_billing": 24990.97,
+        "avg_los": 18.57,
+        "emergency_pct": 85.71,
+        "abnormal_pct": 28.57
+      },
+      {
+        "Hospital": "Inc Morales",
+        "patient_volume": 7,
+        "total_billing": 164598.05,
+        "avg_billing": 23514.01,
+        "avg_los": 22.0,
+        "emergency_pct": 85.71,
+        "abnormal_pct": 28.57
+      },
+      {
+        "Hospital": "Morales Group",
+        "patient_volume": 7,
+        "total_billing": 163112.0,
+        "avg_billing": 23301.71,
+        "avg_los": 17.14,
+        "emergency_pct": 85.71,
+        "abnormal_pct": 42.86
+      },
+      {
+        "Hospital": "Phillips Inc",
+        "patient_volume": 7,
+        "total_billing": 224950.93,
+        "avg_billing": 32135.85,
+        "avg_los": 16.29,
+        "emergency_pct": 85.71,
+        "abnormal_pct": 28.57
+      }
+    ]
+  },
+  "financial": {
+    "total_billing": 1404121601.31,
+    "avg_billing_per_stay_day": 3399.13,
+    "high_billing_case_count": 5486,
+    "high_billing_case_pct": 10.0,
+    "los_billing_correlation": -0.0048,
+    "revenue_by_disease": [
+      {
+        "Medical Condition": "Diabetes",
+        "total": 236494659.43,
+        "average": 25714.33,
+        "count": 9197
+      },
+      {
+        "Medical Condition": "Obesity",
+        "total": 236017058.71,
+        "average": 25859.22,
+        "count": 9127
+      },
+      {
+        "Medical Condition": "Arthritis",
+        "total": 235173465.16,
+        "average": 25542.9,
+        "count": 9207
+      },
+      {
+        "Medical Condition": "Hypertension",
+        "total": 233386943.49,
+        "average": 25559.84,
+        "count": 9131
+      },
+      {
+        "Medical Condition": "Asthma",
+        "total": 233146239.82,
+        "average": 25685.39,
+        "count": 9077
+      },
+      {
+        "Medical Condition": "Cancer",
+        "total": 229903234.69,
+        "average": 25205.92,
+        "count": 9121
+      }
+    ],
+    "revenue_by_admission_type": [
+      {
+        "Admission Type": "Elective",
+        "total": 473155041.26,
+        "average": 25663.34,
+        "count": 18437
+      },
+      {
+        "Admission Type": "Urgent",
+        "total": 469257572.95,
+        "average": 25568.44,
+        "count": 18353
+      },
+      {
+        "Admission Type": "Emergency",
+        "total": 461708987.1,
+        "average": 25551.13,
+        "count": 18070
+      }
+    ],
+    "revenue_by_insurance": [
+      {
+        "Insurance Provider": "Cigna",
+        "total": 284346461.15,
+        "average": 25582.23,
+        "count": 11115
+      },
+      {
+        "Insurance Provider": "Medicare",
+        "total": 282921171.9,
+        "average": 25678.09,
+        "count": 11018
+      },
+      {
+        "Insurance Provider": "Blue Cross",
+        "total": 280416694.18,
+        "average": 25639.27,
+        "count": 10937
+      },
+      {
+        "Insurance Provider": "Unitedhealthcare",
+        "total": 279920531.85,
+        "average": 25458.89,
+        "count": 10995
+      },
+      {
+        "Insurance Provider": "Aetna",
+        "total": 276516742.22,
+        "average": 25615.26,
+        "count": 10795
+      }
+    ],
+    "top_revenue_hospitals": [
+      {
+        "Hospital": "Johnson Plc",
+        "total_billing": 1081477.31
+      },
+      {
+        "Hospital": "Llc Smith",
+        "total_billing": 1030189.87
+      },
+      {
+        "Hospital": "Smith Plc",
+        "total_billing": 1029424.45
+      },
+      {
+        "Hospital": "Ltd Smith",
+        "total_billing": 1003365.53
+      },
+      {
+        "Hospital": "Smith Ltd",
+        "total_billing": 970035.87
+      },
+      {
+        "Hospital": "Johnson Inc",
+        "total_billing": 936931.27
+      },
+      {
+        "Hospital": "Group Smith",
+        "total_billing": 902975.79
+      },
+      {
+        "Hospital": "Inc Brown",
+        "total_billing": 877961.31
+      },
+      {
+        "Hospital": "Llc Johnson",
+        "total_billing": 816438.35
+      },
+      {
+        "Hospital": "Smith Group",
+        "total_billing": 806767.93
+      }
+    ]
+  },
+  "insurance": {
+    "disclaimer": "Billing Amount reflects total patient charges recorded in the dataset, not confirmed insurance claim payouts \u2014 the dataset does not include separate claims data.",
+    "provider_summary": [
+      {
+        "Insurance Provider": "Cigna",
+        "patient_volume": 11115,
+        "total_billing": 284346461.15,
+        "avg_billing": 25582.23
+      },
+      {
+        "Insurance Provider": "Medicare",
+        "patient_volume": 11018,
+        "total_billing": 282921171.9,
+        "avg_billing": 25678.09
+      },
+      {
+        "Insurance Provider": "Unitedhealthcare",
+        "patient_volume": 10995,
+        "total_billing": 279920531.85,
+        "avg_billing": 25458.89
+      },
+      {
+        "Insurance Provider": "Blue Cross",
+        "patient_volume": 10937,
+        "total_billing": 280416694.18,
+        "avg_billing": 25639.27
+      },
+      {
+        "Insurance Provider": "Aetna",
+        "patient_volume": 10795,
+        "total_billing": 276516742.22,
+        "avg_billing": 25615.26
+      }
+    ],
+    "top_disease_by_provider": [
+      {
+        "Insurance Provider": "Aetna",
+        "Medical Condition": "Hypertension",
+        "billing_amount": 48179599.75
+      },
+      {
+        "Insurance Provider": "Blue Cross",
+        "Medical Condition": "Obesity",
+        "billing_amount": 48825165.78
+      },
+      {
+        "Insurance Provider": "Cigna",
+        "Medical Condition": "Asthma",
+        "billing_amount": 48430593.33
+      },
+      {
+        "Insurance Provider": "Medicare",
+        "Medical Condition": "Diabetes",
+        "billing_amount": 48466668.0
+      },
+      {
+        "Insurance Provider": "Unitedhealthcare",
+        "Medical Condition": "Asthma",
+        "billing_amount": 47821190.79
+      }
+    ],
+    "admission_type_mix_by_provider": [
+      {
+        "Insurance Provider": "Aetna",
+        "Admission Type": "Elective",
+        "count": 3707
+      },
+      {
+        "Insurance Provider": "Aetna",
+        "Admission Type": "Emergency",
+        "count": 3633
+      },
+      {
+        "Insurance Provider": "Aetna",
+        "Admission Type": "Urgent",
+        "count": 3455
+      },
+      {
+        "Insurance Provider": "Blue Cross",
+        "Admission Type": "Elective",
+        "count": 3700
+      },
+      {
+        "Insurance Provider": "Blue Cross",
+        "Admission Type": "Emergency",
+        "count": 3595
+      },
+      {
+        "Insurance Provider": "Blue Cross",
+        "Admission Type": "Urgent",
+        "count": 3642
+      },
+      {
+        "Insurance Provider": "Cigna",
+        "Admission Type": "Elective",
+        "count": 3672
+      },
+      {
+        "Insurance Provider": "Cigna",
+        "Admission Type": "Emergency",
+        "count": 3631
+      },
+      {
+        "Insurance Provider": "Cigna",
+        "Admission Type": "Urgent",
+        "count": 3812
+      },
+      {
+        "Insurance Provider": "Medicare",
+        "Admission Type": "Elective",
+        "count": 3631
+      },
+      {
+        "Insurance Provider": "Medicare",
+        "Admission Type": "Emergency",
+        "count": 3635
+      },
+      {
+        "Insurance Provider": "Medicare",
+        "Admission Type": "Urgent",
+        "count": 3752
+      },
+      {
+        "Insurance Provider": "Unitedhealthcare",
+        "Admission Type": "Elective",
+        "count": 3727
+      },
+      {
+        "Insurance Provider": "Unitedhealthcare",
+        "Admission Type": "Emergency",
+        "count": 3576
+      },
+      {
+        "Insurance Provider": "Unitedhealthcare",
+        "Admission Type": "Urgent",
+        "count": 3692
+      }
+    ]
+  },
+  "doctor_performance": {
+    "note": "40,276 distinct doctor names exist across 54,860 admissions (9,384 doctors have more than one admission on record). This is consistent with a synthetic, largely one-doctor-per-admission dataset \u2014 workload figures below describe the repeat-volume subset only and should not be read as real clinical-quality signals.",
+    "top_by_volume": [
+      {
+        "Doctor": "Michael Smith",
+        "patients_treated": 27,
+        "avg_billing": 29055.62,
+        "avg_los": 15.63
+      },
+      {
+        "Doctor": "John Smith",
+        "patients_treated": 22,
+        "avg_billing": 27732.25,
+        "avg_los": 14.36
+      },
+      {
+        "Doctor": "Robert Smith",
+        "patients_treated": 21,
+        "avg_billing": 29007.65,
+        "avg_los": 13.81
+      },
+      {
+        "Doctor": "Michael Johnson",
+        "patients_treated": 20,
+        "avg_billing": 23040.95,
+        "avg_los": 18.7
+      },
+      {
+        "Doctor": "David Smith",
+        "patients_treated": 19,
+        "avg_billing": 24912.93,
+        "avg_los": 15.32
+      },
+      {
+        "Doctor": "James Smith",
+        "patients_treated": 19,
+        "avg_billing": 24313.35,
+        "avg_los": 17.68
+      },
+      {
+        "Doctor": "Robert Johnson",
+        "patients_treated": 19,
+        "avg_billing": 27589.11,
+        "avg_los": 13.79
+      },
+      {
+        "Doctor": "Michael Williams",
+        "patients_treated": 18,
+        "avg_billing": 17171.73,
+        "avg_los": 15.5
+      },
+      {
+        "Doctor": "Christopher Smith",
+        "patients_treated": 17,
+        "avg_billing": 19929.48,
+        "avg_los": 13.12
+      },
+      {
+        "Doctor": "John Johnson",
+        "patients_treated": 17,
+        "avg_billing": 27457.06,
+        "avg_los": 18.06
+      }
+    ],
+    "top_by_avg_billing": [
+      {
+        "Doctor": "Jill Thompson",
+        "patients_treated": 3,
+        "avg_billing": 48015.94,
+        "avg_los": 23.0
+      },
+      {
+        "Doctor": "Monica Williams",
+        "patients_treated": 3,
+        "avg_billing": 47636.28,
+        "avg_los": 12.67
+      },
+      {
+        "Doctor": "Frank Wilson",
+        "patients_treated": 3,
+        "avg_billing": 47621.63,
+        "avg_los": 4.67
+      },
+      {
+        "Doctor": "Thomas Bowers",
+        "patients_treated": 3,
+        "avg_billing": 47569.1,
+        "avg_los": 23.0
+      },
+      {
+        "Doctor": "Hannah Cole",
+        "patients_treated": 3,
+        "avg_billing": 46971.69,
+        "avg_los": 22.67
+      },
+      {
+        "Doctor": "Mark White",
+        "patients_treated": 3,
+        "avg_billing": 46908.1,
+        "avg_los": 4.67
+      },
+      {
+        "Doctor": "Nicole Cook",
+        "patients_treated": 3,
+        "avg_billing": 46738.44,
+        "avg_los": 12.33
+      },
+      {
+        "Doctor": "Jonathan Bennett",
+        "patients_treated": 3,
+        "avg_billing": 46691.68,
+        "avg_los": 23.0
+      },
+      {
+        "Doctor": "Susan Myers",
+        "patients_treated": 3,
+        "avg_billing": 46537.84,
+        "avg_los": 25.0
+      },
+      {
+        "Doctor": "Heather Hunter",
+        "patients_treated": 3,
+        "avg_billing": 46420.65,
+        "avg_los": 17.67
+      }
+    ],
+    "top_by_avg_los": [
+      {
+        "Doctor": "James Tucker",
+        "patients_treated": 3,
+        "avg_billing": 13520.7,
+        "avg_los": 30.0
+      },
+      {
+        "Doctor": "Megan Hill",
+        "patients_treated": 4,
+        "avg_billing": 9899.3,
+        "avg_los": 30.0
+      },
+      {
+        "Doctor": "Stephanie Cox",
+        "patients_treated": 3,
+        "avg_billing": 13792.42,
+        "avg_los": 29.67
+      },
+      {
+        "Doctor": "Michael Cox",
+        "patients_treated": 4,
+        "avg_billing": 11886.46,
+        "avg_los": 29.5
+      },
+      {
+        "Doctor": "Christopher Floyd",
+        "patients_treated": 3,
+        "avg_billing": 35918.24,
+        "avg_los": 29.33
+      },
+      {
+        "Doctor": "Aaron Turner",
+        "patients_treated": 4,
+        "avg_billing": 19506.91,
+        "avg_los": 29.0
+      },
+      {
+        "Doctor": "Elizabeth Tucker",
+        "patients_treated": 3,
+        "avg_billing": 21634.1,
+        "avg_los": 29.0
+      },
+      {
+        "Doctor": "Angela Hernandez",
+        "patients_treated": 3,
+        "avg_billing": 25456.94,
+        "avg_los": 28.67
+      },
+      {
+        "Doctor": "Carrie Hernandez",
+        "patients_treated": 3,
+        "avg_billing": 33343.32,
+        "avg_los": 28.67
+      },
+      {
+        "Doctor": "Victoria Gonzales",
+        "patients_treated": 3,
+        "avg_billing": 34686.34,
+        "avg_los": 28.67
+      }
+    ],
+    "workload_distribution": {
+      "single_case_doctors": 30892,
+      "repeat_case_doctors": 9384,
+      "max_cases_by_one_doctor": 27
+    }
+  },
+  "patient_analytics": {
+    "disease_prevalence": [
+      {
+        "label": "Arthritis",
+        "value": 9207
+      },
+      {
+        "label": "Diabetes",
+        "value": 9197
+      },
+      {
+        "label": "Hypertension",
+        "value": 9131
+      },
+      {
+        "label": "Obesity",
+        "value": 9127
+      },
+      {
+        "label": "Cancer",
+        "value": 9121
+      },
+      {
+        "label": "Asthma",
+        "value": 9077
+      }
+    ],
+    "admissions_by_age_group": [
+      {
+        "label": "Senior (66+)",
+        "value": 16064
+      },
+      {
+        "label": "Young Adult (20-35)",
+        "value": 12702
+      },
+      {
+        "label": "Middle Age (51-65)",
+        "value": 12277
+      },
+      {
+        "label": "Adult (36-50)",
+        "value": 12143
+      },
+      {
+        "label": "Teen (13-19)",
+        "value": 1674
+      }
+    ],
+    "gender_distribution": [
+      {
+        "label": "Male",
+        "value": 27449
+      },
+      {
+        "label": "Female",
+        "value": 27411
+      }
+    ],
+    "blood_type_distribution": [
+      {
+        "label": "A-",
+        "value": 6882
+      },
+      {
+        "label": "A+",
+        "value": 6879
+      },
+      {
+        "label": "B+",
+        "value": 6876
+      },
+      {
+        "label": "AB+",
+        "value": 6872
+      },
+      {
+        "label": "B-",
+        "value": 6861
+      },
+      {
+        "label": "AB-",
+        "value": 6859
+      },
+      {
+        "label": "O+",
+        "value": 6843
+      },
+      {
+        "label": "O-",
+        "value": 6788
+      }
+    ],
+    "avg_los_by_condition": [
+      {
+        "label": "Asthma",
+        "value": 15.68
+      },
+      {
+        "label": "Cancer",
+        "value": 15.51
+      },
+      {
+        "label": "Arthritis",
+        "value": 15.5
+      },
+      {
+        "label": "Hypertension",
+        "value": 15.44
+      },
+      {
+        "label": "Obesity",
+        "value": 15.44
+      },
+      {
+        "label": "Diabetes",
+        "value": 15.43
+      }
+    ],
+    "top_medication_by_condition": [
+      {
+        "condition": "Arthritis",
+        "top_medication": "Aspirin",
+        "count": 1900
+      },
+      {
+        "condition": "Asthma",
+        "top_medication": "Paracetamol",
+        "count": 1868
+      },
+      {
+        "condition": "Cancer",
+        "top_medication": "Lipitor",
+        "count": 1902
+      },
+      {
+        "condition": "Diabetes",
+        "top_medication": "Lipitor",
+        "count": 1871
+      },
+      {
+        "condition": "Hypertension",
+        "top_medication": "Ibuprofen",
+        "count": 1869
+      },
+      {
+        "condition": "Obesity",
+        "top_medication": "Penicillin",
+        "count": 1869
+      }
+    ],
+    "test_result_by_condition": [
+      {
+        "Medical Condition": "Arthritis",
+        "Abnormal": 3153,
+        "Inconclusive": 3061,
+        "Normal": 2993
+      },
+      {
+        "Medical Condition": "Asthma",
+        "Abnormal": 2972,
+        "Inconclusive": 2992,
+        "Normal": 3113
+      },
+      {
+        "Medical Condition": "Cancer",
+        "Abnormal": 3081,
+        "Inconclusive": 3029,
+        "Normal": 3011
+      },
+      {
+        "Medical Condition": "Diabetes",
+        "Abnormal": 3124,
+        "Inconclusive": 3014,
+        "Normal": 3059
+      },
+      {
+        "Medical Condition": "Hypertension",
+        "Abnormal": 2970,
+        "Inconclusive": 3060,
+        "Normal": 3101
+      },
+      {
+        "Medical Condition": "Obesity",
+        "Abnormal": 3099,
+        "Inconclusive": 3003,
+        "Normal": 3025
+      }
+    ]
+  },
+  "resource_planning": {
+    "disclaimer": "The dataset has no bed-capacity, staffing, or occupancy data. Figures below are capacity-demand *proxies* derived from admission volume, length of stay, and room-number spread \u2014 not actual bed utilization.",
+    "admissions_by_month": [
+      {
+        "label": "January",
+        "value": 4646
+      },
+      {
+        "label": "February",
+        "value": 4199
+      },
+      {
+        "label": "March",
+        "value": 4610
+      },
+      {
+        "label": "April",
+        "value": 4466
+      },
+      {
+        "label": "May",
+        "value": 4547
+      },
+      {
+        "label": "June",
+        "value": 4640
+      },
+      {
+        "label": "July",
+        "value": 4762
+      },
+      {
+        "label": "August",
+        "value": 4777
+      },
+      {
+        "label": "September",
+        "value": 4503
+      },
+      {
+        "label": "October",
+        "value": 4605
+      },
+      {
+        "label": "November",
+        "value": 4501
+      },
+      {
+        "label": "December",
+        "value": 4604
+      }
+    ],
+    "admissions_by_weekday": [
+      {
+        "label": "Monday",
+        "value": 7762
+      },
+      {
+        "label": "Tuesday",
+        "value": 7896
+      },
+      {
+        "label": "Wednesday",
+        "value": 7859
+      },
+      {
+        "label": "Thursday",
+        "value": 7893
+      },
+      {
+        "label": "Friday",
+        "value": 7802
+      },
+      {
+        "label": "Saturday",
+        "value": 7809
+      },
+      {
+        "label": "Sunday",
+        "value": 7839
+      }
+    ],
+    "peak_months": [
+      "August",
+      "January",
+      "July"
+    ],
+    "length_of_stay_distribution": {
+      "count": 54860.0,
+      "mean": 15.5,
+      "std": 8.66,
+      "min": 1.0,
+      "25%": 8.0,
+      "50%": 15.0,
+      "75%": 23.0,
+      "max": 30.0
+    },
+    "long_stay_case_count": 5520,
+    "long_stay_case_pct": 10.06,
+    "room_number_range": {
+      "min": 101,
+      "max": 500
+    },
+    "admission_type_by_month": [
+      {
+        "Admission Month": "January",
+        "Elective": 1552,
+        "Emergency": 1545,
+        "Urgent": 1549
+      },
+      {
+        "Admission Month": "February",
+        "Elective": 1412,
+        "Emergency": 1448,
+        "Urgent": 1339
+      },
+      {
+        "Admission Month": "March",
+        "Elective": 1509,
+        "Emergency": 1523,
+        "Urgent": 1578
+      },
+      {
+        "Admission Month": "April",
+        "Elective": 1511,
+        "Emergency": 1468,
+        "Urgent": 1487
+      },
+      {
+        "Admission Month": "May",
+        "Elective": 1566,
+        "Emergency": 1529,
+        "Urgent": 1452
+      },
+      {
+        "Admission Month": "June",
+        "Elective": 1562,
+        "Emergency": 1480,
+        "Urgent": 1598
+      },
+      {
+        "Admission Month": "July",
+        "Elective": 1603,
+        "Emergency": 1572,
+        "Urgent": 1587
+      },
+      {
+        "Admission Month": "August",
+        "Elective": 1612,
+        "Emergency": 1531,
+        "Urgent": 1634
+      },
+      {
+        "Admission Month": "September",
+        "Elective": 1484,
+        "Emergency": 1499,
+        "Urgent": 1520
+      },
+      {
+        "Admission Month": "October",
+        "Elective": 1554,
+        "Emergency": 1489,
+        "Urgent": 1562
+      },
+      {
+        "Admission Month": "November",
+        "Elective": 1505,
+        "Emergency": 1461,
+        "Urgent": 1535
+      },
+      {
+        "Admission Month": "December",
+        "Elective": 1567,
+        "Emergency": 1525,
+        "Urgent": 1512
+      }
+    ]
+  }
+}
